@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var break_time := 0.5
+@export var pickup_item: PackedScene
 
 @onready var highlight_controller: Node2D = $"../HighlightTile"
 @onready var ground: TileMapLayer = $"../../Tiles/Ground"
@@ -31,14 +32,15 @@ func _try_break(delta: float) -> void:
 		breaking = true
 		breaking_cell = cell
 		break_progress = 0.0
-		set_break_ratio(0.0)
+		set_break_animation(0.0)
 
 	break_progress += delta
-	set_break_ratio(break_progress / break_time)
+	set_break_animation(break_progress / break_time)
 	
 	if break_progress >= break_time:
 		if ground.get_cell_source_id(breaking_cell) != -1:
 			ground.erase_cell(breaking_cell)
+			spawn_item(breaking_cell)
 			play_break_sound()
 
 		_cancel_break()
@@ -47,9 +49,16 @@ func _cancel_break() -> void:
 	breaking = false
 	break_progress = 0.0
 	breaking_cell = Vector2i(999999, 999999)
-	set_break_ratio(break_progress / break_time)
+	set_break_animation(break_progress / break_time)
 	
-func set_break_ratio(r: float) -> void:
+func spawn_item(cell: Vector2i) -> void:
+	var p := pickup_item.instantiate()
+	get_tree().current_scene.add_child(p)
+
+	p.global_position = ground.to_global(ground.map_to_local(cell))
+	p.pop()
+	
+func set_break_animation(r: float) -> void:
 	var break_ratio = clamp(r, 0.0, 1.0)
 
 	# scale from 1.0 -> 0.2
