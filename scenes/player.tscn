@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdirokky8005j"]
 
-[ext_resource type="Script" uid="uid://bu3o2cf3f0ruw" path="res://scripts/character_body_2d.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bu3o2cf3f0ruw" path="res://scripts/character_movement.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://di38c3623dr32" path="res://assets/Soldier/Soldier(Split Effects)/Soldier.png" id="2_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnjyy"]
@@ -125,7 +125,6 @@ script = ExtResource("1_g2els")
 shape = SubResource("CapsuleShape2D_rnjyy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=971031688]
-offset = Vector2(0, -80)
 drag_vertical_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1323014607]
