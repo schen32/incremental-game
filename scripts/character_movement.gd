@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var interact_range := 3
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0

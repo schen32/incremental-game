@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bavm2dy61wesg"]
 
 [ext_resource type="Script" uid="uid://d0vgyiot1i43h" path="res://scripts/highlight_tile.gd" id="1_iywne"]
+[ext_resource type="Script" uid="uid://1dck2c0yg7ju" path="res://scripts/destroy_tile.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/tetris-Sheet.png" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bdirokky8005j" path="res://scenes/player.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bjbob2uc0ov24" path="res://scenes/background.tscn" id="3_iywne"]
@@ -35,7 +36,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4vge2")
 
 [node name="Game" type="Node2D" unique_id=1635684854]
-script = ExtResource("1_iywne")
 
 [node name="Player" parent="." unique_id=1146450175 instance=ExtResource("2_lbhrr")]
 position = Vector2(500, 200)
@@ -53,3 +53,11 @@ offset_top = 256.0
 offset_right = 16.0
 offset_bottom = 272.0
 color = Color(1, 0.83137256, 0, 0.5019608)
+
+[node name="GameScripts" type="Node2D" parent="." unique_id=1256118741]
+
+[node name="HighlightTile" type="Node2D" parent="GameScripts" unique_id=1211222330]
+script = ExtResource("1_iywne")
+
+[node name="DestoryTile" type="Node2D" parent="GameScripts" unique_id=1555517572]
+script = ExtResource("1_lbhrr")
