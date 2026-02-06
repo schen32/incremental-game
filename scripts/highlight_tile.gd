@@ -1,10 +1,12 @@
 extends Node2D
 
-var current_hover_cell: Vector2i = Vector2i(999999, 999999) # invalid default
+@export var interact_range := 3
 
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var ground: TileMapLayer = $"../../Tiles/Ground"
 @onready var highlight: ColorRect = $"../../Tiles/Highlight"
+
+var current_hover_cell: Vector2i = Vector2i(999999, 999999) # invalid default
 
 func _process(_delta):
 	var mouse_world = get_global_mouse_position()
@@ -19,7 +21,7 @@ func _process(_delta):
 
 	var dist = max(abs(player_cell.x - hover_cell.x), abs(player_cell.y - hover_cell.y))
 
-	if dist <= player.interact_range:
+	if dist <= interact_range:
 		highlight.visible = true
 		highlight.global_position = ground.map_to_local(hover_cell) - highlight.size * 0.5
 		current_hover_cell = hover_cell
