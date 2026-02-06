@@ -2,12 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/tetris-Sheet.png" id="1_ift3w"]
 [ext_resource type="Script" uid="uid://bkfdwcyc4y3ql" path="res://scripts/pickup_item.gd" id="1_jvkj8"]
+[ext_resource type="AudioStream" uid="uid://bt23o1y2fqnhn" path="res://assets/sound_effects/Pickup.wav" id="3_bncvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvkj8"]
 size = Vector2(16, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvkj8"]
+radius = 8.0
+
 [node name="PickupItem" type="RigidBody2D" unique_id=224960703]
+collision_layer = 2
 can_sleep = false
+lock_rotation = true
 script = ExtResource("1_jvkj8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014789888]
@@ -19,3 +25,11 @@ region_rect = Rect2(16, 0, 16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1949694216]
 scale = Vector2(0.4, 0.4)
 shape = SubResource("RectangleShape2D_jvkj8")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=1977719180]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1842887987]
+shape = SubResource("CircleShape2D_jvkj8")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=1023695441]
+stream = ExtResource("3_bncvo")

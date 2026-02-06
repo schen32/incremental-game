@@ -26,8 +26,6 @@ script = ExtResource("1_iywne")
 script = ExtResource("1_lbhrr")
 pickup_item = ExtResource("7_u5sy4")
 
-[node name="Sounds" type="Node2D" parent="." unique_id=1289912269]
-
-[node name="BreakSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1109415965]
+[node name="BreakSound" type="AudioStreamPlayer2D" parent="GameScripts/DestoryTile" unique_id=1109415965]
 stream = ExtResource("6_p57ef")
 volume_db = -10.0

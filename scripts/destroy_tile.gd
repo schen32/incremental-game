@@ -6,7 +6,7 @@ extends Node2D
 @onready var highlight_controller: Node2D = $"../HighlightTile"
 @onready var ground: TileMapLayer = $"../../Tiles/Ground"
 @onready var highlight: Node2D = $"../../Tiles/Highlight"
-@onready var break_sound: AudioStreamPlayer2D = $"../../Sounds/BreakSound"
+@onready var break_sound: AudioStreamPlayer2D = $BreakSound
 
 var breaking := false
 var break_progress := 0.0
