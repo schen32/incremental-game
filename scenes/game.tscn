@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/tetris-Sheet.png" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bdirokky8005j" path="res://scenes/player.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bjbob2uc0ov24" path="res://scenes/background.tscn" id="3_iywne"]
+[ext_resource type="AudioStream" uid="uid://dk0msq32blpdq" path="res://assets/sound_effects/Hit.wav" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4vge2"]
 texture = ExtResource("1_lnu2h")
@@ -64,3 +65,9 @@ script = ExtResource("1_iywne")
 
 [node name="DestoryTile" type="Node2D" parent="GameScripts" unique_id=1555517572]
 script = ExtResource("1_lbhrr")
+
+[node name="Sounds" type="Node2D" parent="." unique_id=1289912269]
+
+[node name="BreakSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1109415965]
+stream = ExtResource("6_p57ef")
+volume_db = -10.0

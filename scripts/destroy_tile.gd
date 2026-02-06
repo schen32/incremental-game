@@ -1,10 +1,11 @@
 extends Node2D
 
-@export var break_time := 0.6
+@export var break_time := 0.5
 
 @onready var highlight_controller: Node2D = $"../HighlightTile"
 @onready var ground: TileMapLayer = $"../../Tiles/Ground"
 @onready var highlight: Node2D = $"../../Tiles/Highlight"
+@onready var break_sound: AudioStreamPlayer2D = $"../../Sounds/BreakSound"
 
 var breaking := false
 var break_progress := 0.0
@@ -38,6 +39,7 @@ func _try_break(delta: float) -> void:
 	if break_progress >= break_time:
 		if ground.get_cell_source_id(breaking_cell) != -1:
 			ground.erase_cell(breaking_cell)
+			play_break_sound()
 
 		_cancel_break()
 
@@ -58,3 +60,9 @@ func set_break_ratio(r: float) -> void:
 
 	shrink_tween = create_tween()
 	shrink_tween.tween_property(highlight, "scale", target_scale, 0.05)
+	
+func play_break_sound() -> void:
+	break_sound.pitch_scale = randf_range(0.8, 1.2)
+	break_sound.volume_db = -6 + randf_range(-2.0, 2.0)
+	break_sound.global_position = ground.to_global(ground.map_to_local(breaking_cell))
+	break_sound.play()
