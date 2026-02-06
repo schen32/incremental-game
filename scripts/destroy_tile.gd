@@ -4,10 +4,12 @@ extends Node2D
 
 @onready var highlight_controller: Node2D = $"../HighlightTile"
 @onready var ground: TileMapLayer = $"../../Tiles/Ground"
+@onready var highlight: Node2D = $"../../Tiles/Highlight"
 
 var breaking := false
 var break_progress := 0.0
 var breaking_cell: Vector2i = Vector2i(999999, 999999)
+var shrink_tween: Tween
 
 func _process(delta: float) -> void:
 	var holding := Input.is_action_pressed("destroy_tile")
@@ -28,8 +30,11 @@ func _try_break(delta: float) -> void:
 		breaking = true
 		breaking_cell = cell
 		break_progress = 0.0
+		set_break_ratio(0.0)
 
 	break_progress += delta
+	set_break_ratio(break_progress / break_time)
+	
 	if break_progress >= break_time:
 		if ground.get_cell_source_id(breaking_cell) != -1:
 			ground.erase_cell(breaking_cell)
@@ -40,3 +45,16 @@ func _cancel_break() -> void:
 	breaking = false
 	break_progress = 0.0
 	breaking_cell = Vector2i(999999, 999999)
+	set_break_ratio(break_progress / break_time)
+	
+func set_break_ratio(r: float) -> void:
+	var break_ratio = clamp(r, 0.0, 1.0)
+
+	# scale from 1.0 -> 0.2
+	var target_scale = Vector2.ONE * lerp(1.0, 0.2, break_ratio)
+
+	if shrink_tween:
+		shrink_tween.kill()
+
+	shrink_tween = create_tween()
+	shrink_tween.tween_property(highlight, "scale", target_scale, 0.05)

@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var ground: TileMapLayer = $"../../Tiles/Ground"
-@onready var highlight: ColorRect = $"../../Tiles/Highlight"
+@onready var highlight: Node2D = $"../../Tiles/Highlight"
 
 var current_hover_cell: Vector2i = Vector2i(999999, 999999) # invalid default
 
@@ -23,7 +23,7 @@ func _process(_delta):
 
 	if dist <= interact_range:
 		highlight.visible = true
-		highlight.global_position = ground.map_to_local(hover_cell) - highlight.size * 0.5
+		highlight.global_position = ground.map_to_local(hover_cell)
 		current_hover_cell = hover_cell
 	else:
 		highlight.visible = false
