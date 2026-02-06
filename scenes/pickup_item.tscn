@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/tetris-Sheet.png" id="1_ift3w"]
 [ext_resource type="Script" uid="uid://bkfdwcyc4y3ql" path="res://scripts/pickup_item.gd" id="1_jvkj8"]
-[ext_resource type="AudioStream" uid="uid://bt23o1y2fqnhn" path="res://assets/sound_effects/Pickup.wav" id="3_bncvo"]
+[ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop1.mp3" id="3_bncvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvkj8"]
 size = Vector2(16, 16)

@@ -24,7 +24,9 @@ func _physics_process(delta: float) -> void:
 		
 		# --- Animations ---
 	var anim := "idle"
-	if is_on_floor() and abs(velocity.x) > 1.0:
+	if not is_on_floor():
+		anim = "jump"
+	elif is_on_floor() and abs(velocity.x) > 1.0:
 		anim = "walk"
 
 	if m_sprite.animation != anim:
