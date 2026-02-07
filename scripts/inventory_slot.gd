@@ -18,3 +18,6 @@ func set_slot(atlas_coords: Vector2i, amount: int) -> void:
 
 	icon.texture = atlas
 	count.text = str(amount) if amount > 1 else ""
+
+func set_selected(on: bool) -> void:
+	modulate = Color(1,1,1,1) if on else Color(1,1,1,0.7)

@@ -16,8 +16,8 @@ func _ready() -> void:
 	player_inventory.changed.connect(_refresh)
 	_refresh()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_inventory"):
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("toggle_inventory"):
 		expanded = not expanded
 		inventory_panel.visible = expanded
 		_refresh()
@@ -44,6 +44,7 @@ func _refresh() -> void:
 		var s = slot_scene.instantiate()
 		hotbar_grid.add_child(s)
 		s.set_slot(slots[i][0], slots[i][1])
+		s.set_selected(i == player_inventory.selected_hotbar_index)
 
 	# extra rows (only when expanded)
 	if expanded:

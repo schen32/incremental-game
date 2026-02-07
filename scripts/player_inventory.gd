@@ -3,6 +3,9 @@ signal changed
 
 @export var selected_item: StringName = &"grass"  # later: hotbar index
 
+@export var hotbar_size := 10
+var selected_hotbar_index := 0
+
 class ItemData:
 	var amount: int
 	var atlas_coords: Vector2i
@@ -12,6 +15,16 @@ class ItemData:
 
 # item_id -> ItemData
 var items: Dictionary = {}
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("hotbar_next"):
+		set_selected_index(selected_hotbar_index + 1)
+	elif Input.is_action_just_pressed("hotbar_prev"):
+		set_selected_index(selected_hotbar_index - 1)
+
+func set_selected_index(i: int) -> void:
+	selected_hotbar_index = wrapi(i, 0, hotbar_size)
+	changed.emit()
 
 func add_item(id: StringName, atlas_coords: Vector2i = Vector2i.ZERO, amount: int = 1) -> void:
 	var data: ItemData = items.get(id, null)
