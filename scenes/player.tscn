@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bdirokky8005j"]
 
-[ext_resource type="Script" uid="uid://bu3o2cf3f0ruw" path="res://scripts/character_movement.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bu3o2cf3f0ruw" path="res://scripts/player_movement.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://di38c3623dr32" path="res://assets/Soldier/Soldier(Split Effects)/Soldier.png" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://cbst23b6r322k" path="res://scripts/player_pickup_item.gd" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop1.mp3" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnjyy"]
 radius = 5.0
@@ -130,6 +132,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 16.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1146450175 groups=["player"]]
 script = ExtResource("1_g2els")
 
@@ -143,3 +148,13 @@ drag_vertical_enabled = true
 sprite_frames = SubResource("SpriteFrames_08kqv")
 animation = &"jump"
 frame_progress = 0.946186
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=852141647]
+collision_mask = 2
+script = ExtResource("3_qhqgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1352822034]
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="PickupArea" unique_id=733284756]
+stream = ExtResource("4_dqkch")
