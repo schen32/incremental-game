@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bu3o2cf3f0ruw" path="res://scripts/player_movement.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://di38c3623dr32" path="res://assets/Soldier/Soldier(Split Effects)/Soldier.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://cbst23b6r322k" path="res://scripts/player_pickup_item.gd" id="3_qhqgy"]
-[ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop1.mp3" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://cii25ygt4er5p" path="res://scripts/player_inventory.gd" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnjyy"]

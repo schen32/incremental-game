@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bdirokky8005j" path="res://scenes/player.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bjbob2uc0ov24" path="res://scenes/background.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://b7t10nfcdrwrm" path="res://scenes/tiles.tscn" id="3_p57ef"]
-[ext_resource type="AudioStream" uid="uid://dk0msq32blpdq" path="res://assets/sound_effects/Hit.wav" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://dk0msq32blpdq" path="res://assets/sound_effects/Break.wav" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://xikuc4phd042" path="res://scenes/dropped_item.tscn" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://3h6s6kcw015c" path="res://scripts/place_tile.gd" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://jnobfl65eyh3" path="res://scenes/game_ui.tscn" id="8_gee14"]
+[ext_resource type="AudioStream" uid="uid://dfmlqvfcfdikn" path="res://assets/sound_effects/Place.wav" id="9_vtaks"]
 
 [node name="Game" type="Node2D" unique_id=1635684854]
 
@@ -34,5 +35,8 @@ volume_db = -10.0
 
 [node name="PlaceTile" type="Node2D" parent="GameScripts" unique_id=871236199]
 script = ExtResource("8_0tnpc")
+
+[node name="PlaceSound" type="AudioStreamPlayer2D" parent="GameScripts/PlaceTile" unique_id=247764782]
+stream = ExtResource("9_vtaks")
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
