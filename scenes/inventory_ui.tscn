@@ -14,14 +14,28 @@ offset_bottom = 40.0
 script = ExtResource("1_tahbm")
 slot_scene = ExtResource("2_ylkvr")
 
-[node name="Panel" type="Panel" parent="." unique_id=916503825]
+[node name="HotbarPanel" type="Panel" parent="." unique_id=916503825]
 custom_minimum_size = Vector2(435, 130)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ylkvr")
 
-[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=1767895858]
+[node name="GridContainer" type="GridContainer" parent="HotbarPanel" unique_id=1767895858]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 10
+
+[node name="InventoryPanel" type="Panel" parent="." unique_id=69353990]
+custom_minimum_size = Vector2(435, 130)
+layout_mode = 0
+offset_top = 44.0
+offset_right = 435.0
+offset_bottom = 174.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylkvr")
+
+[node name="GridContainer" type="GridContainer" parent="InventoryPanel" unique_id=986680302]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

@@ -1,41 +1,57 @@
 extends Control
 
 @export var slot_scene: PackedScene
-@export var max_slots := 30
+@export var hotbar_size := 10
+@export var total_slots := 30  # includes hotbar
 
-@onready var grid: GridContainer = $Panel/GridContainer
-@onready var player_inventory: Node2D = $"../../Player/Inventory"
+@onready var hotbar_grid: GridContainer = $HotbarPanel/GridContainer
+@onready var inventory_panel: Panel = $InventoryPanel
+@onready var inventory_grid: GridContainer = $InventoryPanel/GridContainer
+@onready var player_inventory: Node = $"../../Player/Inventory"
+
+var expanded := false
 
 func _ready() -> void:
+	inventory_panel.visible = false
 	player_inventory.changed.connect(_refresh)
 	_refresh()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_inventory"):
+		expanded = not expanded
+		inventory_panel.visible = expanded
+		_refresh()
+
 func _refresh() -> void:
-	# clear old slots
-	for child in grid.get_children():
-		child.queue_free()
+	_clear_children(hotbar_grid)
+	_clear_children(inventory_grid)
 
 	var keys = player_inventory.items.keys()
-	var i := 0
-	# 1) filled slots
+	var slots := []
+
+	# flatten inventory into a list like [ [atlas, amt], [atlas, amt], ... ]
 	for id in keys:
-		if i >= max_slots:
-			break
+		var amt = player_inventory.get_amount(id)
+		var atlas = player_inventory.get_atlas_coords(id)
+		slots.append([atlas, amt])
 
-		var item_amount = player_inventory.get_amount(id)
-		var item_atlas_coords = player_inventory.get_atlas_coords(id)
+	# fill up to total_slots
+	while slots.size() < total_slots:
+		slots.append([Vector2i(-1, -1), 0])
 
-		var slot = slot_scene.instantiate()
-		grid.add_child(slot)
+	# hotbar row (always shown)
+	for i in range(hotbar_size):
+		var s = slot_scene.instantiate()
+		hotbar_grid.add_child(s)
+		s.set_slot(slots[i][0], slots[i][1])
 
-		slot.set_slot(item_atlas_coords, item_amount)
-		i += 1
+	# extra rows (only when expanded)
+	if expanded:
+		for i in range(hotbar_size, total_slots):
+			var s = slot_scene.instantiate()
+			inventory_grid.add_child(s)
+			s.set_slot(slots[i][0], slots[i][1])
 
-	# 2) empty slots
-	while i < max_slots:
-		var slot = slot_scene.instantiate()
-		grid.add_child(slot)
-
-		# Use a "no item" marker. Your Slot script should treat amount==0 as empty.
-		slot.set_slot(Vector2i(-1, -1), 0)
-		i += 1
+func _clear_children(node: Node) -> void:
+	for c in node.get_children():
+		c.queue_free()

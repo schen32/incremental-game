@@ -5,8 +5,8 @@
 [node name="GameUI" type="CanvasLayer" unique_id=738382559]
 
 [node name="InventoryUI" parent="." unique_id=2065546921 instance=ExtResource("1_yubou")]
-offset_left = 16.0
+offset_left = 176.0
 offset_top = 8.0
-offset_right = 56.0
+offset_right = 216.0
 offset_bottom = 48.0
 scale = Vector2(0.5, 0.5)
