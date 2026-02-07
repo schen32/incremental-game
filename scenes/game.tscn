@@ -40,3 +40,6 @@ script = ExtResource("8_0tnpc")
 stream = ExtResource("9_vtaks")
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
+
+[node name="WorldLight" type="CanvasModulate" parent="." unique_id=1774911730]
+color = Color(0.20392157, 0.25490198, 0.3529412, 1)

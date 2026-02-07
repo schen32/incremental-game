@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cbst23b6r322k" path="res://scripts/player_pickup_item.gd" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://cii25ygt4er5p" path="res://scripts/player_inventory.gd" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://s5kb3e5rt0g4" path="res://assets/circular_gradient_texture.tres" id="6_tuyoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnjyy"]
 radius = 5.0
@@ -162,3 +163,8 @@ stream = ExtResource("4_dqkch")
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1390035105]
 script = ExtResource("5_qlg0r")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=285489764]
+color = Color(1, 0.94509804, 0.8392157, 1)
+texture = ExtResource("6_tuyoq")
+texture_scale = 1.6

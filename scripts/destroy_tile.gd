@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var break_time := 0.5
+@export var break_time := 0.05
 @export var pickup_item: PackedScene
 
 @onready var highlight_controller: Node2D = $"../HighlightTile"
