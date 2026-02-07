@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://c3eck2sa3dws3" path="res://scripts/inventory_ui.gd" id="1_tahbm"]
 [ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/inventory_slot.tscn" id="2_ylkvr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylkvr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="InventoryUI" type="Control" unique_id=2065546921]
 layout_mode = 3
 anchors_preset = 0
@@ -12,12 +15,14 @@ script = ExtResource("1_tahbm")
 slot_scene = ExtResource("2_ylkvr")
 
 [node name="Panel" type="Panel" parent="." unique_id=916503825]
+custom_minimum_size = Vector2(435, 130)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylkvr")
 
 [node name="GridContainer" type="GridContainer" parent="Panel" unique_id=1767895858]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-columns = 8
+columns = 10
