@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://di38c3623dr32" path="res://assets/Soldier/Soldier(Split Effects)/Soldier.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://cbst23b6r322k" path="res://scripts/player_pickup_item.gd" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop1.mp3" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://cii25ygt4er5p" path="res://scripts/player_inventory.gd" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnjyy"]
 radius = 5.0
@@ -158,3 +159,6 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="PickupArea" unique_id=733284756]
 stream = ExtResource("4_dqkch")
+
+[node name="Inventory" type="Node2D" parent="." unique_id=1390035105]
+script = ExtResource("5_qlg0r")

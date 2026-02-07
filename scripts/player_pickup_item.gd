@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var pickup_sound: AudioStreamPlayer2D = $PickupSound
+@onready var inventory: Node2D = $"../Inventory"
 
 func _ready() -> void:
 	body_entered.connect(_on_pickup_area_body_entered)
@@ -8,7 +9,8 @@ func _ready() -> void:
 func _on_pickup_area_body_entered(body: Node) -> void:
 	if not body.is_in_group("item"):
 		return
-
+	
+	inventory.add_item(body.item)
 	play_pickup_sound()
 
 	var sprite := body.get_node_or_null("Sprite2D")

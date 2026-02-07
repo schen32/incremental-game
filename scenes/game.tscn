@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjbob2uc0ov24" path="res://scenes/background.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://b7t10nfcdrwrm" path="res://scenes/tiles.tscn" id="3_p57ef"]
 [ext_resource type="AudioStream" uid="uid://dk0msq32blpdq" path="res://assets/sound_effects/Hit.wav" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://xikuc4phd042" path="res://scenes/pickup_item.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://xikuc4phd042" path="res://scenes/dropped_item.tscn" id="7_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=1635684854]
 
