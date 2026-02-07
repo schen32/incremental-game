@@ -26,32 +26,33 @@ func _refresh() -> void:
 	_clear_children(hotbar_grid)
 	_clear_children(inventory_grid)
 
-	var keys = player_inventory.items.keys()
-	var slots := []
+	# Ensure we don't index past what the inventory actually has
+	var slot_count = min(total_slots, player_inventory.slots.size())
 
-	# flatten inventory into a list like [ [atlas, amt], [atlas, amt], ... ]
-	for id in keys:
-		var amt = player_inventory.get_amount(id)
-		var atlas = player_inventory.get_atlas_coords(id)
-		slots.append([atlas, amt])
-
-	# fill up to total_slots
-	while slots.size() < total_slots:
-		slots.append([Vector2i(-1, -1), 0])
-
-	# hotbar row (always shown)
+	# --- hotbar row (always shown) ---
 	for i in range(hotbar_size):
-		var s = slot_scene.instantiate()
-		hotbar_grid.add_child(s)
-		s.set_slot(slots[i][0], slots[i][1])
-		s.set_selected(i == player_inventory.selected_hotbar_index)
+		var ui_slot = slot_scene.instantiate()
+		hotbar_grid.add_child(ui_slot)
 
-	# extra rows (only when expanded)
+		if i < slot_count and player_inventory.slots[i] != null:
+			var stack = player_inventory.slots[i]
+			ui_slot.set_slot(stack.atlas_coords, stack.amount)
+		else:
+			ui_slot.set_slot(Vector2i(-1, -1), 0)
+
+		ui_slot.set_selected(i == player_inventory.selected_hotbar_index)
+
+	# --- inventory rows (only when expanded) ---
 	if expanded:
 		for i in range(hotbar_size, total_slots):
-			var s = slot_scene.instantiate()
-			inventory_grid.add_child(s)
-			s.set_slot(slots[i][0], slots[i][1])
+			var ui_slot = slot_scene.instantiate()
+			inventory_grid.add_child(ui_slot)
+
+			if i < slot_count and player_inventory.slots[i] != null:
+				var stack = player_inventory.slots[i]
+				ui_slot.set_slot(stack.atlas_coords, stack.amount)
+			else:
+				ui_slot.set_slot(Vector2i(-1, -1), 0)
 
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():

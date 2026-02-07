@@ -20,4 +20,4 @@ func set_slot(atlas_coords: Vector2i, amount: int) -> void:
 	count.text = str(amount) if amount > 1 else ""
 
 func set_selected(on: bool) -> void:
-	modulate = Color(1,1,1,1) if on else Color(1,1,1,0.7)
+	modulate = Color(1.0, 1.0, 1.0) if on else Color(0.6, 0.6, 0.6)

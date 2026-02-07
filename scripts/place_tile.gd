@@ -20,14 +20,13 @@ func try_place() -> void:
 	var player_cell: Vector2i = ground.local_to_map(ground.to_local(player.global_position))
 	if cell == player_cell:
 		return
-
-	var id: StringName = player_inventory.selected_item
-	if player_inventory.get_amount(id) <= 0:
+	
+	var selected_item = player_inventory.get_selected_data()
+	if selected_item == null or selected_item.amount <= 0:
 		return
-	var atlas: Vector2i = player_inventory.get_atlas_coords(id)
 
-	ground.set_cell(cell, source_id, atlas, 0)
-	player_inventory.remove_item(id, 1)
+	ground.set_cell(cell, source_id, selected_item.atlas_coords, 0)
+	player_inventory.remove_item_from_slot(selected_item.index, 1)
 	play_place_sound(cell)
 	
 func play_place_sound(cell_pos: Vector2i) -> void:
