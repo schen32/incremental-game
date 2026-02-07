@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 
 func _try_break(delta: float) -> void:
 	var cell = highlight_controller.current_hover_cell
-	if cell.x > 100000:
+	if cell.x > 100000 or ground.get_cell_source_id(cell) == -1:
 		_cancel_break()
 		return
 
@@ -38,18 +38,17 @@ func _try_break(delta: float) -> void:
 	set_break_animation(break_progress / break_time)
 	
 	if break_progress >= break_time:
-		if ground.get_cell_source_id(breaking_cell) != -1:
-			var tile_data := ground.get_cell_tile_data(cell)
-			if tile_data == null:
-				return
-				
-			var item: StringName = tile_data.get_custom_data("item")
-			var atlas_coords: Vector2i = ground.get_cell_atlas_coords(cell)
+		var tile_data := ground.get_cell_tile_data(cell)
+		if tile_data == null:
+			return
 			
-			ground.erase_cell(breaking_cell)
-			spawn_item(breaking_cell, item, atlas_coords)
-			play_break_sound()
-
+		var item: StringName = tile_data.get_custom_data("item")
+		var atlas_coords: Vector2i = ground.get_cell_atlas_coords(cell)
+		
+		ground.erase_cell(breaking_cell)
+		spawn_item(breaking_cell, item, atlas_coords)
+		
+		play_break_sound()
 		_cancel_break()
 
 func _cancel_break() -> void:

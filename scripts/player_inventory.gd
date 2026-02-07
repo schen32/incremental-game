@@ -1,6 +1,8 @@
 extends Node2D
 signal changed
 
+@export var selected_item: StringName = &"grass"  # later: hotbar index
+
 class ItemData:
 	var amount: int
 	var atlas_coords: Vector2i

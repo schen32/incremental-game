@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7t10nfcdrwrm" path="res://scenes/tiles.tscn" id="3_p57ef"]
 [ext_resource type="AudioStream" uid="uid://dk0msq32blpdq" path="res://assets/sound_effects/Hit.wav" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://xikuc4phd042" path="res://scenes/dropped_item.tscn" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://3h6s6kcw015c" path="res://scripts/place_tile.gd" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://jnobfl65eyh3" path="res://scenes/game_ui.tscn" id="8_gee14"]
 
 [node name="Game" type="Node2D" unique_id=1635684854]
@@ -30,5 +31,8 @@ pickup_item = ExtResource("7_u5sy4")
 [node name="BreakSound" type="AudioStreamPlayer2D" parent="GameScripts/DestoryTile" unique_id=1109415965]
 stream = ExtResource("6_p57ef")
 volume_db = -10.0
+
+[node name="PlaceTile" type="Node2D" parent="GameScripts" unique_id=871236199]
+script = ExtResource("8_0tnpc")
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
