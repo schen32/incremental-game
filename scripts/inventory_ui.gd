@@ -7,6 +7,7 @@ extends Control
 @onready var hotbar_grid: GridContainer = $HotbarPanel/GridContainer
 @onready var inventory_panel: Panel = $InventoryPanel
 @onready var inventory_grid: GridContainer = $InventoryPanel/GridContainer
+@onready var item_name: Label = $ItemName
 @onready var player_inventory: Node = $"../../Player/Inventory"
 
 var expanded := false
@@ -53,6 +54,11 @@ func _refresh() -> void:
 				ui_slot.set_slot(stack.atlas_coords, stack.amount)
 			else:
 				ui_slot.set_slot(Vector2i(-1, -1), 0)
+	
+	var item_data = player_inventory.get_selected_data()
+	item_name.text = &""
+	if item_data != null:
+		item_name.text = item_data.id
 
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():

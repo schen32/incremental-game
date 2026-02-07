@@ -9,7 +9,7 @@ extends Node2D
 @onready var place_sound: AudioStreamPlayer2D = $PlaceSound
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("place_tile"):
+	if Input.is_action_pressed("place_tile"):
 		try_place()
 
 func try_place() -> void:
