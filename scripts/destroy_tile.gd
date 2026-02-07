@@ -64,7 +64,8 @@ func spawn_item(cell: Vector2i, item: StringName, atlas_coords: Vector2i) -> voi
 	p.global_position = ground.to_global(ground.map_to_local(cell))
 	
 	p.item = item
-	p.apply_appearance(atlas_coords)
+	p.atlas_coords = atlas_coords
+	p.apply_appearance()
 	p.pop()
 	
 func set_break_animation(r: float) -> void:

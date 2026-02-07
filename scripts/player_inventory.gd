@@ -1,25 +1,40 @@
 extends Node2D
-
 signal changed
 
-# item_id -> amount
+class ItemData:
+	var amount: int
+	var atlas_coords: Vector2i
+	func _init(amount := 0, atlas_coords := Vector2i.ZERO) -> void:
+		self.amount = amount
+		self.atlas_coords = atlas_coords
+
+# item_id -> ItemData
 var items: Dictionary = {}
 
-func add_item(id: StringName, amount: int = 1) -> void:
-	items[id] = int(items.get(id, 0)) + amount
+func add_item(id: StringName, atlas_coords: Vector2i = Vector2i.ZERO, amount: int = 1) -> void:
+	var data: ItemData = items.get(id, null)
+	if data == null:
+		data = ItemData.new(0, atlas_coords)
+		items[id] = data
+	data.amount += amount
+	# optionally update coords if you want latest to win:
+	data.atlas_coords = atlas_coords
 	changed.emit()
 
 func remove_item(id: StringName, amount: int = 1) -> bool:
-	var have := int(items.get(id, 0))
-	if have < amount:
+	var data: ItemData = items.get(id, null)
+	if data == null or data.amount < amount:
 		return false
-	have -= amount
-	if have <= 0:
+	data.amount -= amount
+	if data.amount <= 0:
 		items.erase(id)
-	else:
-		items[id] = have
 	changed.emit()
 	return true
 
 func get_amount(id: StringName) -> int:
-	return int(items.get(id, 0))
+	var data: ItemData = items.get(id, null)
+	return 0 if data == null else data.amount
+
+func get_atlas_coords(id: StringName) -> Vector2i:
+	var data: ItemData = items.get(id, null)
+	return Vector2i.ZERO if data == null else data.atlas_coords
