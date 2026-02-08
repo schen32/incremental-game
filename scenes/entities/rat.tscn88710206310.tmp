@@ -4,23 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dd3cc6upt14pv" path="res://assets/AnimalsSpritesheet.png" id="1_t2xky"]
 [ext_resource type="PackedScene" uid="uid://bapwdwhb1pmif" path="res://scenes/components/health.tscn" id="3_3csnj"]
 [ext_resource type="PackedScene" uid="uid://dtspl31lbyi17" path="res://scenes/components/health_bar.tscn" id="4_6s34g"]
-[ext_resource type="Script" uid="uid://cuu8tn2pyhlai" path="res://scripts/component/on_death.gd" id="5_ty1l7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ty1l7"]
-atlas = ExtResource("1_t2xky")
-region = Rect2(112, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4725"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3w4e"]
 atlas = ExtResource("1_t2xky")
 region = Rect2(96, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7dqwd"]
-atlas = ExtResource("1_t2xky")
-region = Rect2(80, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5oq54"]
-atlas = ExtResource("1_t2xky")
-region = Rect2(64, 176, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2xky"]
 atlas = ExtResource("1_t2xky")
@@ -46,20 +33,11 @@ region = Rect2(112, 144, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ty1l7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f4725")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7dqwd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5oq54")
+"texture": SubResource("AtlasTexture_f3w4e")
 }],
-"loop": false,
+"loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,8 +76,6 @@ script = ExtResource("1_jlul8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1277118939]
 sprite_frames = SubResource("SpriteFrames_trtic")
 animation = &"death"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322924175]
 shape = SubResource("CapsuleShape2D_t2xky")
@@ -113,4 +89,3 @@ target_position = Vector2(16, 32)
 position = Vector2(0, 4)
 
 [node name="OnDeath" type="Node2D" parent="." unique_id=1715039229]
-script = ExtResource("5_ty1l7")
