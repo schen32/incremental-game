@@ -5,8 +5,7 @@ Skyblock like Incremental Game?
 - build something -> spawn mob -> get their drops -> craft
 - crafting
 - every block type can spawn a different mob (needs certain light level?)
-- health
-- fall damage
+- punch/knockback mobs
 
 Next Game Ideas
 - multiplayer platforming race game

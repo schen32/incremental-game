@@ -28,3 +28,8 @@ func _teleport_body(body: Node) -> void:
 		body.global_position = respawn_point.global_position
 		body.sleeping = false
 		body.freeze = false
+		
+		pop(body)
+
+func pop(body: Node) -> void:
+	body.apply_impulse(Vector2(randf_range(-16, 16), randf_range(-42, -26)))

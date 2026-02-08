@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var safe_fall_distance := 128.0
-@export var damage_per_16px := 1
+@export var damage_per_16px := 3
 
 var fall_start_y := 0.0
 var was_on_floor := false
