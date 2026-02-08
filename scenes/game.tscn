@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://jnobfl65eyh3" path="res://scenes/game_ui.tscn" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://dfmlqvfcfdikn" path="res://assets/sound_effects/Place.wav" id="9_vtaks"]
 [ext_resource type="Script" uid="uid://b6qrnfuuej4jv" path="res://scripts/killzone.gd" id="10_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://4tn0n6m3sqmk" path="res://scenes/black_rat.tscn" id="12_dinhu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -704.0
@@ -18,7 +19,7 @@ distance = -704.0
 [node name="Game" type="Node2D" unique_id=1635684854]
 
 [node name="Player" parent="." unique_id=1146450175 instance=ExtResource("2_lbhrr")]
-position = Vector2(72, 216)
+position = Vector2(96, 232)
 
 [node name="Background" parent="." unique_id=2029619789 instance=ExtResource("3_iywne")]
 
@@ -65,3 +66,6 @@ shape = SubResource("WorldBoundaryShape2D_vtaks")
 position = Vector2(72, 216)
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
+
+[node name="Rat" parent="." unique_id=1588556972 instance=ExtResource("12_dinhu")]
+position = Vector2(168, 248)

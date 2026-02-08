@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bjbob2uc0ov24"]
 
-[ext_resource type="Texture2D" uid="uid://c7q3gd2thrful" path="res://assets/background 3/1.png" id="1_cbsqf"]
-[ext_resource type="Texture2D" uid="uid://bg2fkpea1gxd4" path="res://assets/background 3/2.png" id="2_wisxt"]
-[ext_resource type="Texture2D" uid="uid://bkkofxana5gbu" path="res://assets/background 3/3.png" id="3_wax1t"]
-[ext_resource type="Texture2D" uid="uid://b6i03ln1oib16" path="res://assets/background 3/4.png" id="4_1tmhi"]
+[ext_resource type="Texture2D" uid="uid://c7q3gd2thrful" path="res://assets/Backgrounds/background 3/1.png" id="1_cbsqf"]
+[ext_resource type="Texture2D" uid="uid://bg2fkpea1gxd4" path="res://assets/Backgrounds/background 3/2.png" id="2_wisxt"]
+[ext_resource type="Texture2D" uid="uid://bkkofxana5gbu" path="res://assets/Backgrounds/background 3/3.png" id="3_wax1t"]
+[ext_resource type="Texture2D" uid="uid://b6i03ln1oib16" path="res://assets/Backgrounds/background 3/4.png" id="4_1tmhi"]
 
 [node name="Background" type="Node2D" unique_id=2029619789]
 show_behind_parent = true

@@ -13,7 +13,7 @@ extends CharacterBody2D
 var coyote_timer := 0.0
 var jump_buffer_timer := 0.0
 
-@onready var m_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	var g := get_gravity()
@@ -64,10 +64,10 @@ func _physics_process(delta: float) -> void:
 	elif abs(velocity.x) > 1.0:
 		anim = "walk"
 
-	if m_sprite.animation != anim:
-		m_sprite.play(anim)
+	if sprite.animation != anim:
+		sprite.play(anim)
 
 	if direction != 0:
-		m_sprite.flip_h = direction < 0
+		sprite.flip_h = direction < 0
 
 	move_and_slide()

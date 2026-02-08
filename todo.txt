@@ -3,3 +3,6 @@ Skyblock like Incremental Game?
 - multiple islands
 - skill/quest tree
 - map/mini-map
+- mob farms
+- build something -> spawn mob -> get their drops -> craft
+- crafting

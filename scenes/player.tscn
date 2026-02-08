@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdirokky8005j"]
 
 [ext_resource type="Script" uid="uid://bu3o2cf3f0ruw" path="res://scripts/player_movement.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://di38c3623dr32" path="res://assets/Soldier/Soldier(Split Effects)/Soldier.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://di38c3623dr32" path="res://assets/Mobs/Soldier/Soldier(Split Effects)/Soldier.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://cbst23b6r322k" path="res://scripts/player_pickup_item.gd" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://cii25ygt4er5p" path="res://scripts/player_inventory.gd" id="5_qlg0r"]
@@ -137,6 +137,8 @@ animations = [{
 radius = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1146450175 groups=["player"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=158616927]
