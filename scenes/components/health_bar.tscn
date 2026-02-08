@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dtspl31lbyi17"]
+
+[ext_resource type="Script" uid="uid://cheb468bpk8uh" path="res://scripts/mob_health_bar.gd" id="1_1bvlm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjrip"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smehm"]
+bg_color = Color(1, 0, 0.29411766, 1)
+
+[node name="HealthBar" type="Node2D" unique_id=390659757]
+script = ExtResource("1_1bvlm")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=993094838]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 72.0
+offset_bottom = -6.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/background = SubResource("StyleBoxFlat_fjrip")
+theme_override_styles/fill = SubResource("StyleBoxFlat_smehm")
+step = 0.001
+show_percentage = false

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jnobfl65eyh3"]
 
-[ext_resource type="PackedScene" uid="uid://ymkck3m223ml" path="res://scenes/hotbar_ui.tscn" id="1_yubou"]
-[ext_resource type="PackedScene" uid="uid://cr866fpqwtukv" path="res://scenes/inventory_ui.tscn" id="2_rns2u"]
+[ext_resource type="PackedScene" uid="uid://ymkck3m223ml" path="res://scenes/ui/hotbar_ui.tscn" id="1_yubou"]
+[ext_resource type="PackedScene" uid="uid://cr866fpqwtukv" path="res://scenes/ui/inventory_ui.tscn" id="2_rns2u"]
 
 [node name="GameUI" type="CanvasLayer" unique_id=738382559]
 

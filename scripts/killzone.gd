@@ -6,13 +6,19 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
-		_respawn_player(body)
+	call_deferred("_respawn_body", body)
 
-func _respawn_player(player: Node) -> void:
-	# stop movement
-	if player is CharacterBody2D:
-		player.velocity = Vector2.ZERO
+func _respawn_body(body: Node) -> void:
+	print("KILLZONE HIT: ", body.name, " at ", body.global_position)
+	
+	if body is CharacterBody2D:
+		body.velocity = Vector2.ZERO
+		body.global_position = respawn_point.global_position
 
-	# teleport
-	player.global_position = respawn_point.global_position
+	elif body is RigidBody2D:
+		body.freeze = true
+		body.linear_velocity = Vector2.ZERO
+		body.angular_velocity = 0.0
+		body.global_position = respawn_point.global_position
+		body.sleeping = false
+		body.freeze = false

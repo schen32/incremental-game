@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cbst23b6r322k" path="res://scripts/player_pickup_item.gd" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://cii25ygt4er5p" path="res://scripts/player_inventory.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://cuwyxicxmu1x" path="res://scripts/health.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://cheb468bpk8uh" path="res://scripts/mob_health_bar.gd" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnjyy"]
 radius = 5.0
@@ -164,3 +166,17 @@ stream = ExtResource("4_dqkch")
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1390035105]
 script = ExtResource("5_qlg0r")
+
+[node name="Health" type="Node2D" parent="." unique_id=256131567]
+script = ExtResource("6_tuyoq")
+
+[node name="HealthBar" type="Control" parent="." unique_id=255781210]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("7_fjrip")
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar" unique_id=570363108]
+custom_minimum_size = Vector2(24, 4)
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 27.0
