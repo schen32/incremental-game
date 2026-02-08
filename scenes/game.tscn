@@ -22,12 +22,21 @@ position = Vector2(72, 216)
 
 [node name="Background" parent="." unique_id=2029619789 instance=ExtResource("3_iywne")]
 
-[node name="Tiles" parent="." unique_id=943544180 instance=ExtResource("3_p57ef")]
+[node name="AllTiles" parent="." unique_id=943544180 instance=ExtResource("3_p57ef")]
 
 [node name="GameScripts" type="Node2D" parent="." unique_id=1256118741]
 
 [node name="HighlightTile" type="Node2D" parent="GameScripts" unique_id=1211222330]
 script = ExtResource("1_iywne")
+
+[node name="Highlight" type="Node2D" parent="GameScripts/HighlightTile" unique_id=710917099]
+
+[node name="HighlightRect" type="ColorRect" parent="GameScripts/HighlightTile/Highlight" unique_id=465233398]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 0.83137256, 0, 0.5019608)
 
 [node name="DestoryTile" type="Node2D" parent="GameScripts" unique_id=1555517572]
 script = ExtResource("1_lbhrr")
@@ -45,16 +54,8 @@ stream = ExtResource("9_vtaks")
 
 [node name="GameNodes" type="Node2D" parent="." unique_id=1103421725]
 
-[node name="Highlight" type="Node2D" parent="GameNodes" unique_id=710917099]
-
-[node name="HighlightRect" type="ColorRect" parent="GameNodes/Highlight" unique_id=465233398]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(1, 0.83137256, 0, 0.5019608)
-
 [node name="Killzone" type="Area2D" parent="GameNodes" unique_id=1854873615]
+position = Vector2(0, 1024)
 script = ExtResource("10_kvpfn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameNodes/Killzone" unique_id=1977394104]

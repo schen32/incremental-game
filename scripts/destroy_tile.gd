@@ -4,8 +4,8 @@ extends Node2D
 @export var pickup_item: PackedScene
 
 @onready var highlight_controller: Node2D = $"../HighlightTile"
-@onready var ground: TileMapLayer = $"../../Tiles/Ground"
-@onready var highlight: Node2D = $"../../GameNodes/Highlight"
+@onready var ground: TileMapLayer = $"../../AllTiles/Tiles"
+@onready var highlight: Node2D = $"../HighlightTile/Highlight"
 @onready var break_sound: AudioStreamPlayer2D = $BreakSound
 
 var breaking := false

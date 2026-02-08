@@ -3,7 +3,7 @@ extends Node2D
 @export var source_id := 0  # TileSet source id (usually 0 for an atlas source)
 
 @onready var highlight_controller: Node2D = $"../HighlightTile"
-@onready var ground: TileMapLayer = $"../../Tiles/Ground"
+@onready var ground: TileMapLayer = $"../../AllTiles/Tiles"
 @onready var player_inventory: Node = $"../../Player/Inventory"
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var place_sound: AudioStreamPlayer2D = $PlaceSound

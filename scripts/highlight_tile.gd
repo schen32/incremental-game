@@ -3,8 +3,8 @@ extends Node2D
 @export var interact_range := 3
 
 @onready var player: CharacterBody2D = $"../../Player"
-@onready var ground: TileMapLayer = $"../../Tiles/Ground"
-@onready var highlight: Node2D = $"../../GameNodes/Highlight"
+@onready var ground: TileMapLayer = $"../../AllTiles/Tiles"
+@onready var highlight: Node2D = $"Highlight"
 
 var current_hover_cell: Vector2i = Vector2i(999999, 999999) # invalid default
 
