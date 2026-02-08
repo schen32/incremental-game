@@ -69,3 +69,6 @@ position = Vector2(72, 216)
 
 [node name="Rat" parent="." unique_id=1588556972 instance=ExtResource("12_dinhu")]
 position = Vector2(168, 248)
+
+[node name="Rat2" parent="." unique_id=270914582 instance=ExtResource("12_dinhu")]
+position = Vector2(144, 248)
