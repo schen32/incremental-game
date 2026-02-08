@@ -7,3 +7,6 @@ Skyblock like Incremental Game?
 - every block type can spawn a different mob (needs certain light level?)
 - health
 - fall damage
+
+Next Game Ideas
+- multiplayer platforming race game

@@ -1,14 +1,20 @@
 extends Area2D
 
+@export var killzone_damage := 999999
+
 @onready var respawn_point: Node2D = $"../RespawnPoint"
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
-	call_deferred("_respawn_body", body)
+	var health := body.get_node("Health")
+	if health != null:
+		health.damage(killzone_damage)
+	
+	call_deferred("_teleport_body", body)
 
-func _respawn_body(body: Node) -> void:
+func _teleport_body(body: Node) -> void:
 	print("KILLZONE HIT: ", body.name, " at ", body.global_position)
 	
 	if body is CharacterBody2D:
