@@ -1,8 +1,9 @@
 Skyblock like Incremental Game?
 
-- multiple islands
-- skill/quest tree
+- quest tree
 - map/mini-map
-- mob farms
 - build something -> spawn mob -> get their drops -> craft
 - crafting
+- every block type can spawn a different mob (needs certain light level?)
+- health
+- fall damage

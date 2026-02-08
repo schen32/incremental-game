@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ymkck3m223ml"]
+
+[ext_resource type="Script" uid="uid://c3eck2sa3dws3" path="res://scripts/hotbar_ui.gd" id="1_e6kfb"]
+[ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/inventory_slot.tscn" id="2_8vnii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylkvr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="HotbarUI" type="Control" unique_id=2065546921]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_e6kfb")
+slot_scene = ExtResource("2_8vnii")
+
+[node name="HotbarPanel" type="Panel" parent="." unique_id=916503825]
+custom_minimum_size = Vector2(435, 130)
+layout_mode = 0
+offset_top = 16.0
+offset_right = 435.0
+offset_bottom = 146.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylkvr")
+
+[node name="GridContainer" type="GridContainer" parent="HotbarPanel" unique_id=1767895858]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 10
+
+[node name="ItemName" type="Label" parent="." unique_id=468749276]
+layout_mode = 0
+offset_left = 120.0
+offset_top = -8.0
+offset_right = 307.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 18
+text = "Name"
+horizontal_alignment = 1
