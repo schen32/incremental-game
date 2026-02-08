@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var ground: TileMapLayer = $"../../Tiles/Ground"
-@onready var highlight: Node2D = $"../../Tiles/Highlight"
+@onready var highlight: Node2D = $"../../GameNodes/Highlight"
 
 var current_hover_cell: Vector2i = Vector2i(999999, 999999) # invalid default
 

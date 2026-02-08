@@ -10,11 +10,15 @@
 [ext_resource type="Script" uid="uid://3h6s6kcw015c" path="res://scripts/place_tile.gd" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://jnobfl65eyh3" path="res://scenes/game_ui.tscn" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://dfmlqvfcfdikn" path="res://assets/sound_effects/Place.wav" id="9_vtaks"]
+[ext_resource type="Script" uid="uid://b6qrnfuuej4jv" path="res://scripts/killzone.gd" id="10_kvpfn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
+distance = -704.0
 
 [node name="Game" type="Node2D" unique_id=1635684854]
 
 [node name="Player" parent="." unique_id=1146450175 instance=ExtResource("2_lbhrr")]
-position = Vector2(500, 200)
+position = Vector2(72, 216)
 
 [node name="Background" parent="." unique_id=2029619789 instance=ExtResource("3_iywne")]
 
@@ -39,7 +43,24 @@ script = ExtResource("8_0tnpc")
 [node name="PlaceSound" type="AudioStreamPlayer2D" parent="GameScripts/PlaceTile" unique_id=247764782]
 stream = ExtResource("9_vtaks")
 
-[node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
+[node name="GameNodes" type="Node2D" parent="." unique_id=1103421725]
 
-[node name="WorldLight" type="CanvasModulate" parent="." unique_id=1774911730]
-color = Color(0.20392157, 0.25490198, 0.3529412, 1)
+[node name="Highlight" type="Node2D" parent="GameNodes" unique_id=710917099]
+
+[node name="HighlightRect" type="ColorRect" parent="GameNodes/Highlight" unique_id=465233398]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 0.83137256, 0, 0.5019608)
+
+[node name="Killzone" type="Area2D" parent="GameNodes" unique_id=1854873615]
+script = ExtResource("10_kvpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameNodes/Killzone" unique_id=1977394104]
+shape = SubResource("WorldBoundaryShape2D_vtaks")
+
+[node name="RespawnPoint" type="Marker2D" parent="GameNodes" unique_id=1291392203]
+position = Vector2(72, 216)
+
+[node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
