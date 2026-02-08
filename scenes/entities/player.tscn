@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cii25ygt4er5p" path="res://scripts/player/player_inventory.gd" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bapwdwhb1pmif" path="res://scenes/components/health.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://dtspl31lbyi17" path="res://scenes/components/health_bar.tscn" id="7_smehm"]
+[ext_resource type="PackedScene" uid="uid://cmx141bdrgjrw" path="res://scenes/components/fall_damage.tscn" id="8_dnykm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnjyy"]
 radius = 5.0
@@ -170,3 +171,5 @@ script = ExtResource("5_qlg0r")
 [node name="Health" parent="." unique_id=1420996746 instance=ExtResource("6_fjrip")]
 
 [node name="HealthBar" parent="." unique_id=390659757 instance=ExtResource("7_smehm")]
+
+[node name="FallDamage" parent="." unique_id=1418609708 instance=ExtResource("8_dnykm")]

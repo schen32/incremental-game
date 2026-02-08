@@ -20,7 +20,7 @@ distance = -704.0
 [node name="Game" type="Node2D" unique_id=1635684854]
 
 [node name="Player" parent="." unique_id=1146450175 instance=ExtResource("2_lbhrr")]
-position = Vector2(96, 232)
+position = Vector2(96, 248)
 
 [node name="Background" parent="." unique_id=2029619789 instance=ExtResource("3_iywne")]
 
