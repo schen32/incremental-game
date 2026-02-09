@@ -10,7 +10,7 @@ func _on_pickup_area_body_entered(body: Node) -> void:
 	if not body.is_in_group("item"):
 		return
 	
-	inventory.add_item(body.item, body.atlas_coords)
+	inventory.add_item(body.item_id)
 	play_pickup_sound()
 
 	var sprite := body.get_node_or_null("Sprite2D")

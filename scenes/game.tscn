@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://b6qrnfuuej4jv" path="res://scripts/component/killzone.gd" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://c1y3omdouhnly" path="res://scripts/ui/toggle_inventory.gd" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://4tn0n6m3sqmk" path="res://scenes/entities/rat.tscn" id="12_dinhu"]
+[ext_resource type="Script" uid="uid://dyawl37uysnxf" path="res://scripts/item_database.gd" id="12_trtic"]
+[ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="13_rysoc"]
+[ext_resource type="Resource" uid="uid://clw5ls4h7meqn" path="res://resources/items/DirtItem.tres" id="14_ssvqc"]
+[ext_resource type="Resource" uid="uid://ifbb28d1ucjt" path="res://resources/items/GrassItem.tres" id="15_264po"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -704.0
@@ -69,6 +73,10 @@ shape = SubResource("WorldBoundaryShape2D_vtaks")
 
 [node name="RespawnPoint" type="Marker2D" parent="GameNodes" unique_id=1291392203]
 position = Vector2(96, 216)
+
+[node name="ItemDatabase" type="Node2D" parent="GameNodes" unique_id=598196364]
+script = ExtResource("12_trtic")
+items = Array[ExtResource("13_rysoc")]([ExtResource("15_264po"), ExtResource("14_ssvqc")])
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
 

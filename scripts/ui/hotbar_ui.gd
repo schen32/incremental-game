@@ -23,16 +23,16 @@ func _refresh() -> void:
 
 		if player_inventory.slots[i] != null:
 			var stack = player_inventory.slots[i]
-			ui_slot.set_slot(stack.atlas_coords, stack.amount)
+			ui_slot.set_slot(stack.id, stack.amount)
 		else:
-			ui_slot.set_slot(Vector2i(-1, -1), 0)
+			ui_slot.set_slot(&"", 0)
 
 		ui_slot.set_selected(i == player_inventory.selected_hotbar_index)
 	
-	var item_data = player_inventory.get_selected_data()
+	var selected_item = player_inventory.get_selected_item()
 	item_name.text = &""
-	if item_data != null:
-		item_name.text = item_data.id
+	if selected_item != null:
+		item_name.text = ItemDatabase.get_item(selected_item.id).display_name
 
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():

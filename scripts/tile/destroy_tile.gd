@@ -42,11 +42,10 @@ func _try_break(delta: float) -> void:
 		if tile_data == null:
 			return
 			
-		var item: StringName = tile_data.get_custom_data("item")
-		var atlas_coords: Vector2i = ground.get_cell_atlas_coords(cell)
+		var item_id: StringName = tile_data.get_custom_data("item")
 		
 		ground.erase_cell(breaking_cell)
-		spawn_item(breaking_cell, item, atlas_coords)
+		spawn_item(breaking_cell, item_id)
 		
 		play_break_sound()
 		_cancel_break()
@@ -57,14 +56,12 @@ func _cancel_break() -> void:
 	breaking_cell = Vector2i(999999, 999999)
 	set_break_animation(break_progress / break_time)
 	
-func spawn_item(cell: Vector2i, item: StringName, atlas_coords: Vector2i) -> void:
+func spawn_item(cell: Vector2i, item_id: StringName) -> void:
 	var p := pickup_item.instantiate()
 	get_tree().current_scene.add_child(p)
 	p.global_position = ground.to_global(ground.map_to_local(cell))
 	
-	p.item = item
-	p.atlas_coords = atlas_coords
-	p.apply_appearance()
+	p.set_item(item_id)
 	p.pop()
 	
 func set_break_animation(r: float) -> void:

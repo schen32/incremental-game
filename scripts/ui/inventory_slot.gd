@@ -1,22 +1,23 @@
 extends Panel
 
-@export var tile_size := Vector2i(16, 16)
-
 @onready var icon: TextureRect = $Icon
 @onready var count: Label = $Count
 
-func set_slot(atlas_coords: Vector2i, amount: int) -> void:
-	if amount <= 0 or atlas_coords.x < 0:
+func set_slot(item_id: StringName, amount: int) -> void:
+	if item_id == &"" or amount <= 0:
 		icon.visible = false
 		count.text = ""
 		return
 	icon.visible = true
 	
-	var atlas := AtlasTexture.new()
-	atlas.atlas = preload("res://assets/tetris-Sheet.png")
-	atlas.region = Rect2(Vector2(atlas_coords) * Vector2(tile_size), Vector2(tile_size))
+	var item_data: ItemData = ItemDatabase.get_item(item_id)
 
+	var atlas := AtlasTexture.new()
+	atlas.atlas = item_data.texture
+	atlas.region = Rect2i(item_data.atlas_coords * item_data.tile_size,
+						  item_data.tile_size)
 	icon.texture = atlas
+
 	count.text = str(amount) if amount > 1 else ""
 
 func set_selected(on: bool) -> void:

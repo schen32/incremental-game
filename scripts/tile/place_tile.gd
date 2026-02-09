@@ -21,11 +21,12 @@ func try_place() -> void:
 	if cell == player_cell:
 		return
 	
-	var selected_item = player_inventory.get_selected_data()
+	var selected_item = player_inventory.get_selected_item()
 	if selected_item == null or selected_item.amount <= 0:
 		return
+	var selected_item_data := ItemDatabase.get_item(selected_item.id)
 
-	ground.set_cell(cell, source_id, selected_item.atlas_coords, 0)
+	ground.set_cell(cell, source_id, selected_item_data.atlas_coords, 0)
 	player_inventory.remove_item_from_slot(selected_item.index, 1)
 	play_place_sound(cell)
 	

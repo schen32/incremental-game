@@ -1,23 +1,22 @@
 extends Node2D
 signal changed
 
-class ItemData:
-	var index: int
+class ItemStack:
 	var id: StringName
 	var amount: int
-	var atlas_coords: Vector2i
-	func _init(i_index := 0, i_id: StringName = &"", i_amount := 0, i_atlas_coords := Vector2i.ZERO) -> void:
-		self.index = i_index
-		self.id = i_id
-		self.amount = i_amount
-		self.atlas_coords = i_atlas_coords
+	var index: int
+
+	func _init(_id: StringName, _amount: int, _index: int) -> void:
+		id = _id
+		amount = _amount
+		index = _index
 
 @export var total_slots := 30
 @export var hotbar_size := 10
 var selected_hotbar_index := 0
 
-# slots[0..total_slots-1] each holds an ItemStack or null
-var slots: Array[ItemData] = []
+# slots[0..total_slots-1] each holds an item id
+var slots: Array[ItemStack] = []
 
 func _ready() -> void:
 	slots.resize(total_slots)
@@ -34,7 +33,7 @@ func set_selected_index(i: int) -> void:
 	selected_hotbar_index = wrapi(i, 0, hotbar_size)
 	changed.emit()
 
-func add_item(id: StringName, atlas_coords: Vector2i, amount: int = 1) -> void:
+func add_item(id: StringName, amount: int = 1) -> void:
 	# 1) Try to stack into existing slot
 	for s in slots:
 		if s != null and s.id == id:
@@ -45,7 +44,7 @@ func add_item(id: StringName, atlas_coords: Vector2i, amount: int = 1) -> void:
 	# 2) Put into first empty slot
 	for i in range(slots.size()):
 		if slots[i] == null:
-			slots[i] = ItemData.new(i, id, amount, atlas_coords)
+			slots[i] = ItemStack.new(id, amount, i)
 			changed.emit()
 			return
 
@@ -64,5 +63,6 @@ func remove_item_from_slot(slot_index: int, amount: int = 1) -> bool:
 	changed.emit()
 	return true
 
-func get_selected_data() -> ItemData:
+func get_selected_item() -> ItemStack:
 	return slots[selected_hotbar_index]
+	
