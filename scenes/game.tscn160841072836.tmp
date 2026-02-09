@@ -46,11 +46,12 @@ offset_right = 8.0
 offset_bottom = 8.0
 color = Color(1, 0.83137256, 0, 0.5019608)
 
-[node name="DestroyTile" type="Node2D" parent="GameScripts" unique_id=1555517572]
+[node name="DestoryTile" type="Node2D" parent="GameScripts" unique_id=1555517572]
 script = ExtResource("1_lbhrr")
+break_time = null
 pickup_item = ExtResource("7_u5sy4")
 
-[node name="BreakSound" type="AudioStreamPlayer2D" parent="GameScripts/DestroyTile" unique_id=1109415965]
+[node name="BreakSound" type="AudioStreamPlayer2D" parent="GameScripts/DestoryTile" unique_id=1109415965]
 stream = ExtResource("6_p57ef")
 volume_db = -10.0
 

@@ -13,18 +13,10 @@ var break_progress := 0.0
 var breaking_cell: Vector2i = Vector2i(999999, 999999)
 var shrink_tween: Tween
 
-func _process(delta: float) -> void:
-	var holding := Input.is_action_pressed("destroy_tile")
-
-	if holding:
-		_try_break(delta)
-	else:
-		_cancel_break()
-
-func _try_break(delta: float) -> void:
+func try_break(delta: float) -> void:
 	var cell = highlight_controller.current_hover_cell
 	if cell.x > 100000 or ground.get_cell_source_id(cell) == -1:
-		_cancel_break()
+		cancel_break()
 		return
 
 	# If player moved hover to a different tile, reset progress
@@ -48,9 +40,9 @@ func _try_break(delta: float) -> void:
 		spawn_item(breaking_cell, item_id)
 		
 		play_break_sound()
-		_cancel_break()
+		cancel_break()
 
-func _cancel_break() -> void:
+func cancel_break() -> void:
 	breaking = false
 	break_progress = 0.0
 	breaking_cell = Vector2i(999999, 999999)

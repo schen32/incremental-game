@@ -8,10 +8,6 @@ extends Node2D
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var place_sound: AudioStreamPlayer2D = $PlaceSound
 
-func _process(_delta: float) -> void:
-	if Input.is_action_pressed("place_tile"):
-		try_place()
-
 func try_place() -> void:
 	var cell: Vector2i = highlight_controller.current_hover_cell
 	if cell.x > 100000 or ground.get_cell_source_id(cell) != -1:
