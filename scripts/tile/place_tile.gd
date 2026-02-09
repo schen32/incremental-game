@@ -4,27 +4,21 @@ extends Node2D
 
 @onready var highlight_controller: Node2D = $"../HighlightTile"
 @onready var ground: TileMapLayer = $"../../AllTiles/Tiles"
-@onready var player_inventory: Node = $"../../Player/Inventory"
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var place_sound: AudioStreamPlayer2D = $PlaceSound
 
-func try_place() -> void:
+func try_place(tile_data: ItemData) -> bool:
 	var cell: Vector2i = highlight_controller.current_hover_cell
 	if cell.x > 100000 or ground.get_cell_source_id(cell) != -1:
-		return
+		return false
 	
 	var player_cell: Vector2i = ground.local_to_map(ground.to_local(player.global_position))
 	if cell == player_cell:
-		return
-	
-	var selected_item = player_inventory.get_selected_item()
-	if selected_item == null or selected_item.amount <= 0:
-		return
-	var selected_item_data := ItemDatabase.get_item(selected_item.id)
+		return false
 
-	ground.set_cell(cell, source_id, selected_item_data.atlas_coords, 0)
-	player_inventory.remove_item_from_slot(selected_item.index, 1)
+	ground.set_cell(cell, source_id, tile_data.atlas_coords, 0)
 	play_place_sound(cell)
+	return true
 	
 func play_place_sound(cell_pos: Vector2i) -> void:
 	place_sound.pitch_scale = randf_range(0.8, 1.2)
