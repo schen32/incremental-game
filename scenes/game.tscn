@@ -68,7 +68,7 @@ script = ExtResource("10_kvpfn")
 shape = SubResource("WorldBoundaryShape2D_vtaks")
 
 [node name="RespawnPoint" type="Marker2D" parent="GameNodes" unique_id=1291392203]
-position = Vector2(72, 216)
+position = Vector2(96, 216)
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
 

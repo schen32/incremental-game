@@ -8,7 +8,7 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
-	var health := body.get_node("Health")
+	var health := body.get_node_or_null("Health")
 	if health != null:
 		health.damage(killzone_damage)
 	

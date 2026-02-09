@@ -6,11 +6,11 @@ class ItemData:
 	var id: StringName
 	var amount: int
 	var atlas_coords: Vector2i
-	func _init(index := 0, id: StringName = &"", amount := 0, atlas_coords := Vector2i.ZERO) -> void:
-		self.index = index
-		self.id = id
-		self.amount = amount
-		self.atlas_coords = atlas_coords
+	func _init(i_index := 0, i_id: StringName = &"", i_amount := 0, i_atlas_coords := Vector2i.ZERO) -> void:
+		self.index = i_index
+		self.id = i_id
+		self.amount = i_amount
+		self.atlas_coords = i_atlas_coords
 
 @export var total_slots := 30
 @export var hotbar_size := 10
