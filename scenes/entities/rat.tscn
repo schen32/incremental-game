@@ -92,6 +92,8 @@ animations = [{
 radius = 6.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_f4725"]
+
 [node name="Rat" type="CharacterBody2D" unique_id=1588556972]
 collision_layer = 8
 script = ExtResource("1_jlul8")
@@ -116,3 +118,10 @@ position = Vector2(0, 4)
 [node name="OnDeath" parent="." unique_id=556730445 instance=ExtResource("5_ty1l7")]
 
 [node name="FallDamage" parent="." unique_id=1418609708 instance=ExtResource("6_f4725")]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1887631309]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=747837601]
+shape = SubResource("CircleShape2D_f4725")

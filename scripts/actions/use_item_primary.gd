@@ -1,19 +1,27 @@
 extends Node2D
 
 @onready var destroy_tile: Node2D = $"../DestroyTile"
-@onready var player_inventory: Node = $"../../Player/Inventory"
+@onready var player_inventory: Node2D = $"../../Player/Inventory"
+@onready var sword: Node2D = $"../../Player/Sword"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("use_primary"):
-		var selected_item = player_inventory.get_selected_item()
-		if selected_item != null:
-			var selected_item_data := ItemDatabase.get_item(selected_item.id)
-			if not selected_item_data.can_destroy_tiles:
-				return
+	var holding := Input.is_action_pressed("use_primary")
+	if not holding:
+		destroy_tile.cancel_break()
+		return
 
-		var holding := Input.is_action_pressed("use_primary")
-		if holding:
-			destroy_tile.try_break(delta)
-		else:
-			destroy_tile.cancel_break()
+	var item = player_inventory.get_selected_item()
+	if item == null:
+		destroy_tile.try_break(delta)
+		return
+
+	var data: Resource = ItemDatabase.get_item(item.id)
+	if data is WeaponData:
+		sword.attack()
+		destroy_tile.cancel_break()
+		return
+
+	if data is ItemData and data.can_destroy_tiles:
+		destroy_tile.try_break(delta)
+	else:
+		destroy_tile.cancel_break()

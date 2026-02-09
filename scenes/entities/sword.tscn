@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dwsl0bh5m2f8v"]
+
+[ext_resource type="Script" uid="uid://cbjfkpn4omipo" path="res://scripts/sword.gd" id="1_1ayml"]
+[ext_resource type="Texture2D" uid="uid://bux3wr21evtkc" path="res://assets/ToolsAndDrops.png" id="1_3ehq0"]
+
+[sub_resource type="Animation" id="Animation_3ehq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1ayml"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5707963267948966, 1.5707963267948966]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qecxl"]
+_data = {
+&"RESET": SubResource("Animation_3ehq0"),
+&"attack": SubResource("Animation_1ayml")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ehq0"]
+radius = 6.0
+height = 20.0
+
+[node name="Sword" type="Node2D" unique_id=22069868]
+script = ExtResource("1_1ayml")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1639652939]
+texture = ExtResource("1_3ehq0")
+centered = false
+offset = Vector2(4, -20)
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440362667]
+libraries/ = SubResource("AnimationLibrary_qecxl")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=358487227]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1642716605]
+position = Vector2(12, -12)
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_3ehq0")

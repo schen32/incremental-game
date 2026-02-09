@@ -65,4 +65,3 @@ func remove_item_from_slot(slot_index: int, amount: int = 1) -> bool:
 
 func get_selected_item() -> ItemStack:
 	return slots[selected_hotbar_index]
-	

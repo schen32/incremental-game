@@ -80,6 +80,15 @@ test={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="tiles"
+2d_physics/layer_2="items"
+2d_physics/layer_3="player"
+2d_physics/layer_4="mobs"
+2d_physics/layer_5="hitboxes"
+2d_physics/layer_6="hurtboxes"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
