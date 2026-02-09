@@ -7,7 +7,7 @@ extends Node2D
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("use_secondary"):
 		var selected_item = player_inventory.get_selected_item()
-		if selected_item == null or selected_item.amount <= 0:
+		if selected_item == null:
 			return
 		var selected_item_data := ItemDatabase.get_item(selected_item.id)
 

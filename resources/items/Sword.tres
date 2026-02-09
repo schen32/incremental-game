@@ -9,4 +9,5 @@ id = &"sword"
 display_name = "Sword"
 texture = ExtResource("2_23blw")
 atlas_coords = Vector2i(1, 1)
+can_destroy_tiles = false
 metadata/_custom_type_script = "uid://b7magcbhva0on"
