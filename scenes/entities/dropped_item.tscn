@@ -10,9 +10,6 @@ collision_layer = 2
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_jvkj8")
-item = null
-tile_size = null
-tile_atlas = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014789888]
 scale = Vector2(0.4, 0.4)

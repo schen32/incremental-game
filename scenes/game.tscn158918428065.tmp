@@ -83,6 +83,6 @@ items = Array[ExtResource("13_rysoc")]([ExtResource("15_264po"), ExtResource("14
 [node name="Rat" parent="." unique_id=1588556972 instance=ExtResource("12_dinhu")]
 position = Vector2(168, 248)
 
-[node name="Sword" parent="." unique_id=224960703 instance=ExtResource("7_u5sy4")]
-position = Vector2(24, 240)
+[node name="PickupItem" parent="." unique_id=224960703 instance=ExtResource("7_u5sy4")]
+position = Vector2(24, 248)
 item_id = &"sword"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://yopor0vsr3om"]
+
+[ext_resource type="Script" uid="uid://b7magcbhva0on" path="res://resources/items/WeaponData.gd" id="1_8gp58"]
+[ext_resource type="Texture2D" uid="uid://bux3wr21evtkc" path="res://assets/ToolsAndDrops.png" id="2_23blw"]
+
+[resource]
+script = ExtResource("1_8gp58")
+id = &"sword"
+display_name = "Sword"
+texture = ExtResource("2_23blw")
+atlas_coords = Vector2i(1, 1)
+metadata/_custom_type_script = "uid://b7magcbhva0on"

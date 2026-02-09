@@ -14,8 +14,7 @@ func set_slot(item_id: StringName, amount: int) -> void:
 
 	var atlas := AtlasTexture.new()
 	atlas.atlas = item_data.texture
-	atlas.region = Rect2i(item_data.atlas_coords * item_data.tile_size,
-						  item_data.tile_size)
+	atlas.region = item_data.get_region()
 	icon.texture = atlas
 
 	count.text = str(amount) if amount > 1 else ""

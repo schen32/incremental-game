@@ -1,0 +1,6 @@
+extends ItemData
+class_name WeaponData
+
+@export var damage: int = 1
+@export var cooldown: float = 0.25
+@export var knockback: float = 0.0
