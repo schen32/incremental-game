@@ -9,4 +9,5 @@ id = &"grass"
 display_name = "Grass"
 texture = ExtResource("2_w07gu")
 atlas_coords = Vector2i(1, 0)
+is_placeable = true
 metadata/_custom_type_script = "uid://4pntbdlodnik"

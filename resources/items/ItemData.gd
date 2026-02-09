@@ -5,6 +5,7 @@ class_name ItemData
 @export var display_name: String
 @export var texture: Texture2D
 @export var atlas_coords: Vector2i
+@export var is_placeable: bool = false
 
 @export var tile_size: int = 16
 

@@ -11,5 +11,5 @@ func _process(_delta: float) -> void:
 			return
 		var selected_item_data := ItemDatabase.get_item(selected_item.id)
 
-		if place_tile.try_place(selected_item_data):
+		if selected_item_data.is_placeable and place_tile.try_place(selected_item_data):
 			player_inventory.remove_item_from_slot(selected_item.index, 1)
