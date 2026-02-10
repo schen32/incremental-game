@@ -38,3 +38,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if not area.has_method("apply_damage"):
 		return
 	area.apply_damage(weapon_data.damage)
+
+	if not area.has_method("apply_knockback"):
+		return
+	area.apply_knockback(player.global_position, weapon_data.knockback_force, weapon_data.knockback_duration)

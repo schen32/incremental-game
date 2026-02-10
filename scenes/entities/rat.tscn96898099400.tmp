@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cmx141bdrgjrw" path="res://scenes/components/fall_damage.tscn" id="6_f4725"]
 [ext_resource type="Script" uid="uid://ykrlvoj8p6th" path="res://scripts/hurtbox.gd" id="7_7dqwd"]
 [ext_resource type="Script" uid="uid://clxwrwskqudi0" path="res://scripts/knockback.gd" id="8_5oq54"]
-[ext_resource type="Script" uid="uid://novo355idch7" path="res://scripts/motor.gd" id="9_c8hf6"]
-[ext_resource type="Script" uid="uid://bgtxj77tscmhm" path="res://scripts/animation_controller.gd" id="10_knoy5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ty1l7"]
 atlas = ExtResource("1_t2xky")
@@ -136,9 +134,3 @@ script = ExtResource("8_5oq54")
 
 [node name="AI" type="Node2D" parent="." unique_id=2128412311]
 script = ExtResource("1_jlul8")
-
-[node name="Motor" type="Node2D" parent="." unique_id=763038649]
-script = ExtResource("9_c8hf6")
-
-[node name="AnimationController" type="Node2D" parent="." unique_id=320686251]
-script = ExtResource("10_knoy5")

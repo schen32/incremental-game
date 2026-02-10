@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var speed := 15.0
 @export var turn_cooldown := 0.15
@@ -14,8 +14,10 @@ var state_timer := 0.0
 var dir := -1
 var turn_timer := 0.0
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var floor_check: RayCast2D = $FloorCheck
+@onready var body: CharacterBody2D = get_parent()
+@onready var sprite: AnimatedSprite2D = $"../AnimatedSprite2D"
+@onready var floor_check: RayCast2D = $"../FloorCheck"
+@onready var anim_controller: Node2D = $"../AnimationController"
 @onready var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -27,8 +29,8 @@ func _physics_process(delta: float) -> void:
 	turn_timer = max(turn_timer - delta, 0.0)
 
 	# gravity
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if not body.is_on_floor():
+		body.velocity += body.get_gravity() * delta
 
 	# state timer
 	state_timer -= delta
@@ -40,24 +42,22 @@ func _physics_process(delta: float) -> void:
 
 	# movement
 	if state == State.WALK:
-		velocity.x = dir * speed
+		body.velocity.x = dir * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, speed)
-
-	move_and_slide()
+		body.velocity.x = move_toward(body.velocity.x, 0.0, speed)
 
 	# turn around on wall/ledge only while walking
 	if state == State.WALK and turn_timer <= 0.0:
-		if is_on_wall():
+		if body.is_on_wall():
 			turn_around()
-		elif is_on_floor() and not floor_check.is_colliding():
+		elif body.is_on_floor() and not floor_check.is_colliding():
 			turn_around()
 
-	# animations
-	var anim := "idle" if state == State.IDLE else "walk"
-	if sprite.animation != anim:
-		sprite.play(anim)
-	sprite.flip_h = dir < 0
+	var flip_sprite = dir < 0
+	if state == State.IDLE:
+		anim_controller.play_anim(&"idle", flip_sprite)
+	elif state == State.WALK:
+		anim_controller.play_anim(&"walk", flip_sprite)
 
 func _enter_idle() -> void:
 	state = State.IDLE

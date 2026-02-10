@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("1_8gp58")
-damage = 10
+damage = 4
+knockback_force = 50.0
+knockback_duration = 0.1
 id = &"sword"
 display_name = "Sword"
 texture = ExtResource("2_23blw")
