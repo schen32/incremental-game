@@ -6,6 +6,7 @@ extends Node2D
 @onready var hitbox: Area2D = $Sprite2D/Hitbox
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var player: CharacterBody2D = $"../../"
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
 
 func _ready() -> void:
 	hitbox.monitoring = false
@@ -42,3 +43,5 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if not area.has_method("apply_knockback"):
 		return
 	area.apply_knockback(player.global_position, weapon_data.knockback_force, weapon_data.knockback_duration)
+	
+	hit_sound.play()
