@@ -28,6 +28,15 @@ func _process(_delta: float) -> void:
 		set_selected_index(selected_hotbar_index + 1)
 	elif Input.is_action_just_pressed("hotbar_prev"):
 		set_selected_index(selected_hotbar_index - 1)
+	
+	if Input.is_action_just_pressed("hotbar_1"):
+		set_selected_index(0)
+	elif Input.is_action_just_pressed("hotbar_2"):
+		set_selected_index(1)
+	elif Input.is_action_just_pressed("hotbar_3"):
+		set_selected_index(2)
+	elif Input.is_action_just_pressed("hotbar_4"):
+		set_selected_index(3)
 
 func set_selected_index(i: int) -> void:
 	selected_hotbar_index = wrapi(i, 0, hotbar_size)

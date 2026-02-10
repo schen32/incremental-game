@@ -5,6 +5,7 @@ extends Node2D
 @onready var body: CharacterBody2D = get_parent()
 @onready var motor: Node2D = $"../Motor"
 @onready var anim_controller: Node2D = $"../AnimationController"
+@onready var death_sound: AudioStreamPlayer2D = $"DeathSound"
 
 var dead := false
 
@@ -19,5 +20,6 @@ func _on_died() -> void:
 	motor.freeze()
 
 	anim_controller.play_anim(&"death")
+	death_sound.play()
 	await anim_controller.anim_finished
 	body.queue_free()
