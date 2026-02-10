@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtspl31lbyi17" path="res://scenes/components/health_bar.tscn" id="4_6s34g"]
 [ext_resource type="PackedScene" uid="uid://2vvnt2mtja3v" path="res://scenes/components/on_death.tscn" id="5_ty1l7"]
 [ext_resource type="PackedScene" uid="uid://cmx141bdrgjrw" path="res://scenes/components/fall_damage.tscn" id="6_f4725"]
+[ext_resource type="Script" uid="uid://ykrlvoj8p6th" path="res://scripts/hurtbox.gd" id="7_7dqwd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ty1l7"]
 atlas = ExtResource("1_t2xky")
@@ -122,6 +123,7 @@ position = Vector2(0, 4)
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1887631309]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("7_7dqwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=747837601]
 shape = SubResource("CircleShape2D_f4725")

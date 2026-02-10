@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var destroy_tile: Node2D = $"../DestroyTile"
 @onready var player_inventory: Node2D = $"../../Player/Inventory"
-@onready var sword: Node2D = $"../../Player/Sword"
 
 func _process(delta: float) -> void:
 	var holding := Input.is_action_pressed("use_primary")
@@ -17,7 +16,10 @@ func _process(delta: float) -> void:
 
 	var data: Resource = ItemDatabase.get_item(item.id)
 	if data is WeaponData:
-		sword.attack()
+		var weapons_root := $"../../Player/Weapons"
+		var weapon := weapons_root.get_node_or_null(NodePath(String(item.id)))
+		if weapon and weapon.has_method("attack"):
+			weapon.attack(data as WeaponData)
 		destroy_tile.cancel_break()
 		return
 

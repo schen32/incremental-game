@@ -175,4 +175,7 @@ script = ExtResource("5_qlg0r")
 
 [node name="FallDamage" parent="." unique_id=1418609708 instance=ExtResource("8_dnykm")]
 
-[node name="Sword" parent="." unique_id=1020241386 instance=ExtResource("9_c5rqy")]
+[node name="Weapons" type="Node2D" parent="." unique_id=556683697]
+
+[node name="sword" parent="Weapons" unique_id=1020241386 instance=ExtResource("9_c5rqy")]
+rotation = -3.1415925
