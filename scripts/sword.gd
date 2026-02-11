@@ -34,8 +34,9 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		sprite.visible = false
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if weapon_data == null:
+	if weapon_data == null or not area.is_in_group("hurtbox"):
 		return
+		
 	if not area.has_method("apply_damage"):
 		return
 	area.apply_damage(weapon_data.damage)

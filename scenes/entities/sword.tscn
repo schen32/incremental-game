@@ -71,4 +71,4 @@ libraries/ = SubResource("AnimationLibrary_qecxl")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1237791398]
 stream = ExtResource("3_qecxl")
-volume_db = -6.0
+volume_db = -10.0

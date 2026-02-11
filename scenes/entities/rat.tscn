@@ -128,7 +128,7 @@ volume_db = -6.0
 
 [node name="FallDamage" parent="." unique_id=1418609708 instance=ExtResource("6_f4725")]
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1887631309]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1887631309 groups=["hurtbox"]]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("7_7dqwd")
