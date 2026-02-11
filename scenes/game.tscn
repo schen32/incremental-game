@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://3h6s6kcw015c" path="res://scripts/tile/place_tile.gd" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://jnobfl65eyh3" path="res://scenes/ui/game_ui.tscn" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://dfmlqvfcfdikn" path="res://assets/sound_effects/Place.wav" id="9_vtaks"]
-[ext_resource type="Script" uid="uid://b6qrnfuuej4jv" path="res://scripts/component/killzone.gd" id="10_kvpfn"]
+[ext_resource type="Script" uid="uid://b6qrnfuuej4jv" path="res://scripts/entity/killzone.gd" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://c1y3omdouhnly" path="res://scripts/ui/toggle_inventory.gd" id="10_kvuet"]
 [ext_resource type="Script" uid="uid://bq1hoecaa13pd" path="res://scripts/actions/use_item_primary.gd" id="11_264po"]
 [ext_resource type="Script" uid="uid://d0t1ctod3gqd3" path="res://scripts/actions/use_item_secondary.gd" id="12_1kice"]
