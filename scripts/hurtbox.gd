@@ -10,12 +10,12 @@ func _ready() -> void:
 
 func _on_died() -> void:
 	collision_shape.set_deferred("disabled", true)
-	monitoring = false
-	monitorable = false
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
 
 func apply_damage(amount: int) -> void:
 	health.damage(amount)
 
-func apply_knockback(from_pos, force, duration) -> void:
+func apply_knockback(from_pos, force) -> void:
 	var dir = (body.global_position - from_pos).normalized()
-	knockback.apply_knockback(dir, force, duration)
+	knockback.apply_knockback(dir, force)

@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="13_rysoc"]
 [ext_resource type="Resource" uid="uid://clw5ls4h7meqn" path="res://resources/items/DirtItem.tres" id="14_ssvqc"]
 [ext_resource type="Resource" uid="uid://ifbb28d1ucjt" path="res://resources/items/GrassItem.tres" id="15_264po"]
+[ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/rat_spawner.gd" id="20_1kice"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -704.0
@@ -69,6 +70,14 @@ script = ExtResource("11_264po")
 [node name="UseItemSecondary" type="Node2D" parent="GameScripts" unique_id=2131092232]
 script = ExtResource("12_1kice")
 
+[node name="RatSpawner" type="Node2D" parent="GameScripts" unique_id=1969273863]
+position = Vector2(216, 224)
+script = ExtResource("20_1kice")
+rat_scene = ExtResource("12_dinhu")
+
+[node name="Marker2D" type="Marker2D" parent="GameScripts/RatSpawner" unique_id=1241602668]
+position = Vector2(200, 224)
+
 [node name="GameNodes" type="Node2D" parent="." unique_id=1103421725]
 
 [node name="Killzone" type="Area2D" parent="GameNodes" unique_id=1854873615]
@@ -90,12 +99,6 @@ items = Array[ExtResource("13_rysoc")]([ExtResource("15_264po"), ExtResource("14
 
 [node name="Rat" parent="." unique_id=1588556972 instance=ExtResource("12_dinhu")]
 position = Vector2(168, 248)
-
-[node name="Rat2" parent="." unique_id=1128419326 instance=ExtResource("12_dinhu")]
-position = Vector2(216, 248)
-
-[node name="Rat3" parent="." unique_id=1945756946 instance=ExtResource("12_dinhu")]
-position = Vector2(296, 248)
 
 [node name="Sword" parent="." unique_id=224960703 instance=ExtResource("7_u5sy4")]
 position = Vector2(24, 240)
