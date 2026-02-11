@@ -4,7 +4,6 @@ signal changed
 class ItemStack:
 	var id: StringName
 	var amount: int
-	var index: int
 
 	func _init(_id: StringName, _amount: int) -> void:
 		id = _id
