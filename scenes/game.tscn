@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dyawl37uysnxf" path="res://scripts/item_database.gd" id="12_trtic"]
 [ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="13_rysoc"]
 [ext_resource type="Resource" uid="uid://clw5ls4h7meqn" path="res://resources/items/DirtItem.tres" id="14_ssvqc"]
+[ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="15_5newe"]
 [ext_resource type="Resource" uid="uid://ifbb28d1ucjt" path="res://resources/items/GrassItem.tres" id="15_264po"]
 [ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/rat_spawner.gd" id="20_1kice"]
 
@@ -77,6 +78,10 @@ rat_scene = ExtResource("12_dinhu")
 
 [node name="Marker2D" type="Marker2D" parent="GameScripts/RatSpawner" unique_id=1241602668]
 position = Vector2(200, 224)
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="GameScripts/RatSpawner" unique_id=1954952835]
+stream = ExtResource("15_5newe")
+volume_db = -20.0
 
 [node name="GameNodes" type="Node2D" parent="." unique_id=1103421725]
 
