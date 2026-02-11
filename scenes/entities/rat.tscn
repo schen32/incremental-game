@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dd3cc6upt14pv" path="res://assets/AnimalsSpritesheet.png" id="1_t2xky"]
 [ext_resource type="PackedScene" uid="uid://bapwdwhb1pmif" path="res://scenes/components/health.tscn" id="3_3csnj"]
 [ext_resource type="PackedScene" uid="uid://dtspl31lbyi17" path="res://scenes/components/health_bar.tscn" id="4_6s34g"]
-[ext_resource type="AudioStream" uid="uid://b2mv0f5bmiwr4" path="res://assets/sound_effects/Death.wav" id="5_702ld"]
+[ext_resource type="AudioStream" uid="uid://cn7kaudjs6vh2" path="res://assets/sound_effects/Death.wav" id="5_702ld"]
 [ext_resource type="PackedScene" uid="uid://2vvnt2mtja3v" path="res://scenes/components/on_death.tscn" id="5_ty1l7"]
 [ext_resource type="PackedScene" uid="uid://cmx141bdrgjrw" path="res://scenes/components/fall_damage.tscn" id="6_f4725"]
 [ext_resource type="Script" uid="uid://ykrlvoj8p6th" path="res://scripts/component/hurtbox.gd" id="7_7dqwd"]
