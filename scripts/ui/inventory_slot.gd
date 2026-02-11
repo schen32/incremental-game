@@ -1,5 +1,8 @@
 extends Panel
 
+signal clicked(index: int, button: int)
+var index: int = -1
+
 @onready var icon: TextureRect = $Icon
 @onready var count: Label = $Count
 
@@ -21,3 +24,7 @@ func set_slot(item_id: StringName, amount: int) -> void:
 
 func set_selected(on: bool) -> void:
 	modulate = Color(1.0, 1.0, 1.0) if on else Color(0.6, 0.6, 0.6)
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		clicked.emit(index, event.button_index)

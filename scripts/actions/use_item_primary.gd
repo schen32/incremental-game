@@ -30,4 +30,4 @@ func _process(delta: float) -> void:
 		else:
 			destroy_tile.cancel_break()
 	elif Input.is_action_just_pressed("use_primary"):
-		print("inventory shown primary action")
+		pass

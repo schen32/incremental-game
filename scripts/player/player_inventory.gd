@@ -6,10 +6,9 @@ class ItemStack:
 	var amount: int
 	var index: int
 
-	func _init(_id: StringName, _amount: int, _index: int) -> void:
+	func _init(_id: StringName, _amount: int) -> void:
 		id = _id
 		amount = _amount
-		index = _index
 
 @export var total_slots := 30
 @export var hotbar_size := 10
@@ -53,7 +52,7 @@ func add_item(id: StringName, amount: int = 1) -> void:
 	# 2) Put into first empty slot
 	for i in range(slots.size()):
 		if slots[i] == null:
-			slots[i] = ItemStack.new(id, amount, i)
+			slots[i] = ItemStack.new(id, amount)
 			changed.emit()
 			return
 
@@ -74,3 +73,6 @@ func remove_item_from_slot(slot_index: int, amount: int = 1) -> bool:
 
 func get_selected_item() -> ItemStack:
 	return slots[selected_hotbar_index]
+	
+func new_item_stack(_id: StringName, _amount: int) -> ItemStack:
+	return ItemStack.new(_id, _amount)
