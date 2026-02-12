@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2vvnt2mtja3v"]
 
-[ext_resource type="Script" uid="uid://cuu8tn2pyhlai" path="res://scripts/component/on_death.gd" id="1_d4wp6"]
+[ext_resource type="Script" uid="uid://cuu8tn2pyhlai" path="res://scripts/components/on_death.gd" id="1_d4wp6"]
 
 [node name="OnDeath" type="Node2D" unique_id=556730445]
 script = ExtResource("1_d4wp6")

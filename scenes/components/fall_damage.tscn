@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmx141bdrgjrw"]
 
-[ext_resource type="Script" uid="uid://cl5ipvhrn48v4" path="res://scripts/component/fall_damage.gd" id="1_cx2h7"]
+[ext_resource type="Script" uid="uid://cl5ipvhrn48v4" path="res://scripts/components/fall_damage.gd" id="1_cx2h7"]
 
 [node name="FallDamage" type="Node2D" unique_id=1418609708]
 script = ExtResource("1_cx2h7")

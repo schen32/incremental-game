@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwsl0bh5m2f8v"]
 
-[ext_resource type="Script" uid="uid://cbjfkpn4omipo" path="res://scripts/entity/sword.gd" id="1_1ayml"]
+[ext_resource type="Script" uid="uid://cbjfkpn4omipo" path="res://scripts/entities/sword.gd" id="1_1ayml"]
 [ext_resource type="Texture2D" uid="uid://bux3wr21evtkc" path="res://assets/ToolsAndDrops.png" id="1_3ehq0"]
 [ext_resource type="AudioStream" uid="uid://b47jqrsggbfyh" path="res://assets/sound_effects/Hit.wav" id="3_qecxl"]
 

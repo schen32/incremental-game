@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtspl31lbyi17"]
 
-[ext_resource type="Script" uid="uid://cheb468bpk8uh" path="res://scripts/component/mob_health_bar.gd" id="1_1bvlm"]
+[ext_resource type="Script" uid="uid://cheb468bpk8uh" path="res://scripts/components/mob_health_bar.gd" id="1_1bvlm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjrip"]
 bg_color = Color(1, 1, 1, 0)

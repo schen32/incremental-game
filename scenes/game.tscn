@@ -10,15 +10,16 @@
 [ext_resource type="Script" uid="uid://3h6s6kcw015c" path="res://scripts/tile/place_tile.gd" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://jnobfl65eyh3" path="res://scenes/ui/game_ui.tscn" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://dfmlqvfcfdikn" path="res://assets/sound_effects/Place.wav" id="9_vtaks"]
-[ext_resource type="Script" uid="uid://b6qrnfuuej4jv" path="res://scripts/entity/killzone.gd" id="10_kvpfn"]
+[ext_resource type="Script" uid="uid://b6qrnfuuej4jv" path="res://scripts/entities/killzone.gd" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://c1y3omdouhnly" path="res://scripts/ui/toggle_inventory.gd" id="10_kvuet"]
 [ext_resource type="Script" uid="uid://bq1hoecaa13pd" path="res://scripts/actions/use_item_primary.gd" id="11_264po"]
 [ext_resource type="Script" uid="uid://d0t1ctod3gqd3" path="res://scripts/actions/use_item_secondary.gd" id="12_1kice"]
 [ext_resource type="PackedScene" uid="uid://4tn0n6m3sqmk" path="res://scenes/entities/rat.tscn" id="12_dinhu"]
-[ext_resource type="Script" uid="uid://dyawl37uysnxf" path="res://scripts/item_database.gd" id="12_trtic"]
+[ext_resource type="Script" uid="uid://dyawl37uysnxf" path="res://scripts/globals/item_database.gd" id="12_trtic"]
+[ext_resource type="Script" uid="uid://dk3g35nrf83hu" path="res://scripts/player/available_recipes.gd" id="13_1kice"]
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="15_5newe"]
 [ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/rat_spawner.gd" id="20_1kice"]
-[ext_resource type="Script" uid="uid://d1doe40jv0hhg" path="res://scripts/recipe_database.gd" id="21_37s47"]
+[ext_resource type="Script" uid="uid://d1doe40jv0hhg" path="res://scripts/globals/recipe_database.gd" id="21_37s47"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -704.0
@@ -68,6 +69,9 @@ script = ExtResource("11_264po")
 
 [node name="UseItemSecondary" type="Node2D" parent="GameScripts" unique_id=2131092232]
 script = ExtResource("12_1kice")
+
+[node name="AvailableRecipes" type="Node2D" parent="GameScripts" unique_id=1146806397]
+script = ExtResource("13_1kice")
 
 [node name="GameNodes" type="Node2D" parent="." unique_id=1103421725]
 

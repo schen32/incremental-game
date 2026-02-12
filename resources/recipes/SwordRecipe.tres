@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_1x3sm")
 inputs = {
-&"dirt": 1
+&"dirt": 1,
+&"grass": 1
 }
 output_id = &"sword"
 metadata/_custom_type_script = "uid://bb03girk2p5np"

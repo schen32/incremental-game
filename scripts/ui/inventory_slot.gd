@@ -28,7 +28,7 @@ func set_slot(item_id: StringName, amount: int) -> void:
 	atlas.region = item_data.get_region()
 	icon.texture = atlas
 
-	count.text = str(amount) if amount > 1 else ""
+	count.text = str(amount) if amount > 0 else ""
 
 func set_selected(on: bool) -> void:
 	modulate = Color(1.0, 1.0, 1.0) if on else Color(0.6, 0.6, 0.6)
