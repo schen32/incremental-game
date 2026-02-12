@@ -1,6 +1,7 @@
 extends Control
 
 @export var slot_scene: PackedScene
+@export var style_box: StyleBoxFlat
 @export var hotbar_size := 10
 @export var total_slots := 30  # includes hotbar
 var held_stack = null
@@ -30,6 +31,7 @@ func _refresh() -> void:
 			ui_slot.set_slot(stack.id, stack.amount)
 		else:
 			ui_slot.set_slot(&"", 0)
+		ui_slot.add_theme_stylebox_override(&"panel", style_box)
 
 		ui_slot.set_selected(i == player_inventory.selected_hotbar_index)
 

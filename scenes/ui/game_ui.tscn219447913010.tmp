@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cr866fpqwtukv" path="res://scenes/ui/inventory_ui.tscn" id="2_rns2u"]
 [ext_resource type="PackedScene" uid="uid://cpyka0r0wfseu" path="res://scenes/ui/crafting_ui.tscn" id="3_bma8u"]
 [ext_resource type="Script" uid="uid://dlgfvauwcwbjp" path="res://scripts/ui/tooltip.gd" id="4_fct72"]
-[ext_resource type="StyleBox" uid="uid://byptgumusm4ue" path="res://resources/recipes/style_box_flat1.tres" id="4_yvtb5"]
 [ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="5_ru5ln"]
 [ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/inventory_slot.tscn" id="5_v1bdg"]
 [ext_resource type="StyleBox" uid="uid://dtgi56g27v6bd" path="res://resources/recipes/style_box_flat2.tres" id="6_qrkc0"]
@@ -29,7 +28,6 @@ offset_top = 8.0
 offset_right = 216.0
 offset_bottom = 48.0
 scale = Vector2(0.5, 0.5)
-style_box = ExtResource("4_yvtb5")
 
 [node name="Inventory" type="Control" parent="." unique_id=1096129272]
 layout_mode = 3
@@ -44,7 +42,6 @@ offset_top = 232.0
 offset_right = 192.0
 offset_bottom = 272.0
 scale = Vector2(0.6, 0.6)
-style_box = ExtResource("4_yvtb5")
 
 [node name="CraftingUI" parent="Inventory" unique_id=987811394 instance=ExtResource("3_bma8u")]
 layout_mode = 0
@@ -53,7 +50,6 @@ offset_top = 32.0
 offset_right = 176.0
 offset_bottom = 72.0
 scale = Vector2(0.6, 0.6)
-style_box = ExtResource("4_yvtb5")
 
 [node name="Tooltip" type="Panel" parent="Inventory" unique_id=1655032281]
 layout_mode = 0

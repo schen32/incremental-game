@@ -1,10 +1,18 @@
 extends Panel
 
+signal hovered(index: int)
+signal unhovered(index: int)
 signal clicked(index: int, button: int)
 var index: int = -1
 
+@export var style_box: StyleBoxFlat
 @onready var icon: TextureRect = $Icon
 @onready var count: Label = $Count
+
+func _ready() -> void:
+	add_theme_stylebox_override(&"panel", style_box)
+	mouse_entered.connect(func(): hovered.emit(index))
+	mouse_exited.connect(func(): unhovered.emit(index))
 
 func set_slot(item_id: StringName, amount: int) -> void:
 	if item_id == &"" or amount <= 0:
