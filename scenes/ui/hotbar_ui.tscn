@@ -4,9 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/inventory_slot.tscn" id="2_8vnii"]
 [ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="3_qymum"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylkvr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="HotbarUI" type="Control" unique_id=2065546921]
 layout_mode = 3
 anchors_preset = 0
@@ -15,18 +12,11 @@ offset_bottom = 40.0
 script = ExtResource("1_e6kfb")
 slot_scene = ExtResource("2_8vnii")
 
-[node name="HotbarPanel" type="Panel" parent="." unique_id=916503825]
-custom_minimum_size = Vector2(435, 130)
+[node name="HotbarGrid" type="GridContainer" parent="." unique_id=1767895858]
 layout_mode = 0
 offset_top = 16.0
-offset_right = 435.0
-offset_bottom = 146.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ylkvr")
-
-[node name="GridContainer" type="GridContainer" parent="HotbarPanel" unique_id=1767895858]
-layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 56.0
 columns = 10
 
 [node name="ItemName" type="Label" parent="." unique_id=468749276]

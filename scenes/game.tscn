@@ -16,11 +16,9 @@
 [ext_resource type="Script" uid="uid://d0t1ctod3gqd3" path="res://scripts/actions/use_item_secondary.gd" id="12_1kice"]
 [ext_resource type="PackedScene" uid="uid://4tn0n6m3sqmk" path="res://scenes/entities/rat.tscn" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://dyawl37uysnxf" path="res://scripts/item_database.gd" id="12_trtic"]
-[ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="13_rysoc"]
-[ext_resource type="Resource" uid="uid://clw5ls4h7meqn" path="res://resources/items/DirtItem.tres" id="14_ssvqc"]
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="15_5newe"]
-[ext_resource type="Resource" uid="uid://ifbb28d1ucjt" path="res://resources/items/GrassItem.tres" id="15_264po"]
 [ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/rat_spawner.gd" id="20_1kice"]
+[ext_resource type="Script" uid="uid://d1doe40jv0hhg" path="res://scripts/recipe_database.gd" id="21_37s47"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -704.0
@@ -71,18 +69,6 @@ script = ExtResource("11_264po")
 [node name="UseItemSecondary" type="Node2D" parent="GameScripts" unique_id=2131092232]
 script = ExtResource("12_1kice")
 
-[node name="RatSpawner" type="Node2D" parent="GameScripts" unique_id=1969273863]
-position = Vector2(216, 224)
-script = ExtResource("20_1kice")
-rat_scene = ExtResource("12_dinhu")
-
-[node name="Marker2D" type="Marker2D" parent="GameScripts/RatSpawner" unique_id=1241602668]
-position = Vector2(200, 224)
-
-[node name="SpawnSound" type="AudioStreamPlayer2D" parent="GameScripts/RatSpawner" unique_id=1954952835]
-stream = ExtResource("15_5newe")
-volume_db = -20.0
-
 [node name="GameNodes" type="Node2D" parent="." unique_id=1103421725]
 
 [node name="Killzone" type="Area2D" parent="GameNodes" unique_id=1854873615]
@@ -98,7 +84,21 @@ position = Vector2(96, 216)
 
 [node name="ItemDatabase" type="Node2D" parent="GameNodes" unique_id=598196364]
 script = ExtResource("12_trtic")
-items = Array[ExtResource("13_rysoc")]([ExtResource("15_264po"), ExtResource("14_ssvqc")])
+
+[node name="RecipeDatabase" type="Node2D" parent="GameNodes" unique_id=422731932]
+script = ExtResource("21_37s47")
+
+[node name="RatSpawner" type="Node2D" parent="GameNodes" unique_id=1969273863]
+position = Vector2(216, 224)
+script = ExtResource("20_1kice")
+rat_scene = ExtResource("12_dinhu")
+
+[node name="Marker2D" type="Marker2D" parent="GameNodes/RatSpawner" unique_id=1241602668]
+position = Vector2(200, 224)
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="GameNodes/RatSpawner" unique_id=1954952835]
+stream = ExtResource("15_5newe")
+volume_db = -20.0
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
 

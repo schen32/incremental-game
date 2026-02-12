@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var hotbar: Control = $"../../GameUI/HotbarUI"
-@onready var inventory: Control = $"../../GameUI/InventoryUI"
+@onready var inventory: Control = $"../../GameUI/Inventory"
 
 var inventory_shown := false
 

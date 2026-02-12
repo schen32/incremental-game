@@ -3,7 +3,7 @@ extends Control
 @export var slot_scene: PackedScene
 @export var hotbar_size := 10
 
-@onready var hotbar_grid: GridContainer = $HotbarPanel/GridContainer
+@onready var hotbar_grid: GridContainer = $HotbarGrid
 @onready var item_name: Label = $ItemName
 @onready var player_inventory: Node = $"../../Player/Inventory"
 

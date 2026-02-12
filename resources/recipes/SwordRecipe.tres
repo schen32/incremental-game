@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://yasxdrxnj5la"]
+
+[ext_resource type="Script" uid="uid://bb03girk2p5np" path="res://resources/recipes/RecipeData.gd" id="1_1x3sm"]
+
+[resource]
+script = ExtResource("1_1x3sm")
+inputs = {
+&"dirt": 1
+}
+output_id = &"sword"
+metadata/_custom_type_script = "uid://bb03girk2p5np"

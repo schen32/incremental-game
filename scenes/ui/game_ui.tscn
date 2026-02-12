@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ymkck3m223ml" path="res://scenes/ui/hotbar_ui.tscn" id="1_yubou"]
 [ext_resource type="PackedScene" uid="uid://cr866fpqwtukv" path="res://scenes/ui/inventory_ui.tscn" id="2_rns2u"]
+[ext_resource type="PackedScene" uid="uid://cpyka0r0wfseu" path="res://scenes/ui/crafting_ui.tscn" id="3_bma8u"]
 
 [node name="GameUI" type="CanvasLayer" unique_id=738382559]
 
@@ -12,9 +13,24 @@ offset_right = 216.0
 offset_bottom = 48.0
 scale = Vector2(0.5, 0.5)
 
-[node name="InventoryUI" parent="." unique_id=695966533 instance=ExtResource("2_rns2u")]
+[node name="Inventory" type="Control" parent="." unique_id=1096129272]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InventoryUI" parent="Inventory" unique_id=695966533 instance=ExtResource("2_rns2u")]
+layout_mode = 0
 offset_left = 152.0
 offset_top = 232.0
 offset_right = 192.0
 offset_bottom = 272.0
+scale = Vector2(0.6, 0.6)
+
+[node name="CraftingUI" parent="Inventory" unique_id=987811394 instance=ExtResource("3_bma8u")]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 32.0
+offset_right = 176.0
+offset_bottom = 72.0
 scale = Vector2(0.6, 0.6)

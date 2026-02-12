@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cpyka0r0wfseu"]
+
+[ext_resource type="Script" uid="uid://cvjkr3mq64hgt" path="res://scripts/crafting_ui.gd" id="1_xjqke"]
+[ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/inventory_slot.tscn" id="2_4hpgr"]
+[ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="3_4hpgr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjfbv"]
+bg_color = Color(0.47843137, 0.3529412, 0.25882354, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3529412, 0.23137255, 0.15686275, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CraftingUI" type="Control" unique_id=987811394]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xjqke")
+slot_scene = ExtResource("2_4hpgr")
+
+[node name="Background" type="Panel" parent="." unique_id=1616500669]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 248.0
+offset_bottom = 240.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjfbv")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=336942425]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 232.0
+
+[node name="RecipeGrid" type="GridContainer" parent="ScrollContainer" unique_id=2100780632]
+layout_mode = 2
+columns = 5
+
+[node name="Label" type="Label" parent="." unique_id=684407008]
+layout_mode = 0
+offset_left = 88.0
+offset_top = -16.0
+offset_right = 165.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource("3_4hpgr")
+theme_override_font_sizes/font_size = 18
+text = "Crafting"

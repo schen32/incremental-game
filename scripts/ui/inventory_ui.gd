@@ -5,11 +5,10 @@ extends Control
 @export var total_slots := 30  # includes hotbar
 var held_stack = null
 
-@onready var hotbar_grid: GridContainer = $HotbarPanel/GridContainer
-@onready var inventory_panel: Panel = $InventoryPanel
-@onready var inventory_grid: GridContainer = $InventoryPanel/GridContainer
-@onready var item_name: Label = $ItemName
-@onready var player_inventory: Node = $"../../Player/Inventory"
+@onready var hotbar_grid: GridContainer = $HotbarGrid
+@onready var inventory_grid: GridContainer = $InventoryGrid
+#@onready var item_name: Label = $ItemName
+@onready var player_inventory: Node = $"../../../Player/Inventory"
 
 func _ready() -> void:
 	player_inventory.changed.connect(_refresh)
@@ -47,10 +46,10 @@ func _refresh() -> void:
 		else:
 			ui_slot.set_slot(&"", 0)
 	
-	var selected_item = player_inventory.get_selected_item()
-	item_name.text = &""
-	if selected_item != null:
-		item_name.text = ItemDatabase.get_item(selected_item.id).display_name
+	#var selected_item = player_inventory.get_selected_item()
+	#item_name.text = &""
+	#if selected_item != null:
+		#item_name.text = ItemDatabase.get_item(selected_item.id).display_name
 
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():
