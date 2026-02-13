@@ -2,8 +2,14 @@ extends Node2D
 
 signal held_changed(held)
 var held_stack = null
+var prev_held = null
 
 @onready var player_inventory: Node2D = $"../../Player/Inventory"
+
+func _process(_delta: float) -> void:
+	if held_stack != prev_held:
+		held_changed.emit(held_stack)
+		prev_held = held_stack
 
 func _on_slot_clicked(index: int, button: int) -> void:
 	match button:
@@ -11,7 +17,6 @@ func _on_slot_clicked(index: int, button: int) -> void:
 			_left_click_slot(index)
 		MOUSE_BUTTON_RIGHT:
 			_right_click_slot(index)
-	held_changed.emit(held_stack)
 
 func _left_click_slot(index: int) -> void:
 	var slot_stack = player_inventory.slots[index]  # ItemStack or null

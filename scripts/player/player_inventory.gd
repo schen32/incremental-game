@@ -87,3 +87,48 @@ func get_selected_item() -> ItemStack:
 	
 func new_item_stack(_id: StringName, _amount: int) -> ItemStack:
 	return ItemStack.new(_id, _amount)
+	
+func count_item(id: StringName) -> int:
+	var total := 0
+	for s in slots:
+		if s != null and s.id == id:
+			total += s.amount
+	return total
+
+func has_requirements(req: Dictionary) -> bool:
+	for id in req.keys():
+		if count_item(id) < int(req[id]):
+			return false
+	return true
+
+func consume_item(id: StringName, amount: int) -> bool:
+	var remaining := amount
+
+	for i in range(slots.size()):
+		var s = slots[i]
+		if s == null or s.id != id:
+			continue
+
+		var take = min(s.amount, remaining)
+		s.amount -= take
+		remaining -= take
+
+		if s.amount <= 0:
+			slots[i] = null
+
+		if remaining <= 0:
+			return true
+
+	return false  # not enough (shouldn’t happen if checked)
+
+func consume_requirements(req: Dictionary) -> bool:
+	# 1) check first so we don’t partially consume
+	if not has_requirements(req):
+		return false
+
+	# 2) consume
+	for id in req.keys():
+		consume_item(id, int(req[id]))
+
+	changed.emit()
+	return true

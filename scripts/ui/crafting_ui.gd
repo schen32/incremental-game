@@ -4,6 +4,7 @@ extends Control
 @export var style_box: StyleBoxFlat
 @onready var recipe_grid: GridContainer = $ScrollContainer/RecipeGrid
 @onready var tooltip: Panel = $"../TooltipUI"
+@onready var craft_item: Node2D = $"../../../GameScripts/CraftItem"
 
 func _ready() -> void:
 	_refresh()
@@ -21,6 +22,7 @@ func _refresh() -> void:
 		
 		ui_slot.hovered.connect(tooltip.show_tooltip)
 		ui_slot.unhovered.connect(tooltip.hide_tooltip)
+		ui_slot.clicked.connect(craft_item.craft_recipe)
 		i += 1
 
 func _clear_children(node: Node) -> void:
