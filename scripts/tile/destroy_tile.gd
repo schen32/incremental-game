@@ -39,7 +39,7 @@ func try_break(delta: float) -> void:
 		ground.erase_cell(breaking_cell)
 		spawn_item(breaking_cell, item_id)
 		
-		play_break_sound()
+		SoundManager.play_player(break_sound)
 		cancel_break()
 
 func cancel_break() -> void:
@@ -67,9 +67,3 @@ func set_break_animation(r: float) -> void:
 
 	shrink_tween = create_tween()
 	shrink_tween.tween_property(highlight, "scale", target_scale, 0.05)
-	
-func play_break_sound() -> void:
-	break_sound.pitch_scale = randf_range(0.8, 1.2)
-	break_sound.volume_db = -6 + randf_range(-2.0, 2.0)
-	break_sound.global_position = ground.to_global(ground.map_to_local(breaking_cell))
-	break_sound.play()

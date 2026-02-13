@@ -15,7 +15,7 @@ func freeze() -> void:
 func unfreeze() -> void:
 	frozen = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if frozen:
 		body.velocity = Vector2.ZERO
 		body.move_and_slide()

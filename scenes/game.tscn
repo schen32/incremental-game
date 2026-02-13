@@ -17,9 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://4tn0n6m3sqmk" path="res://scenes/entities/rat.tscn" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://dyawl37uysnxf" path="res://scripts/globals/item_database.gd" id="12_trtic"]
 [ext_resource type="Script" uid="uid://dk3g35nrf83hu" path="res://scripts/player/available_recipes.gd" id="13_1kice"]
-[ext_resource type="Script" uid="uid://rhr2xjvvyg5h" path="res://scripts/inventory_move_items.gd" id="14_5newe"]
+[ext_resource type="Script" uid="uid://rhr2xjvvyg5h" path="res://scripts/actions/inventory_move_items.gd" id="14_5newe"]
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/sound_effects/Pop.mp3" id="15_5newe"]
-[ext_resource type="Script" uid="uid://pfe76iooumwg" path="res://scripts/craft_item.gd" id="15_37s47"]
+[ext_resource type="Script" uid="uid://pfe76iooumwg" path="res://scripts/actions/craft_item.gd" id="15_37s47"]
+[ext_resource type="Script" uid="uid://co4h33xqbu1ra" path="res://scripts/sound_manager.gd" id="16_bt5mj"]
 [ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/rat_spawner.gd" id="20_1kice"]
 [ext_resource type="Script" uid="uid://d1doe40jv0hhg" path="res://scripts/globals/recipe_database.gd" id="21_37s47"]
 
@@ -111,5 +112,8 @@ position = Vector2(200, 224)
 [node name="SpawnSound" type="AudioStreamPlayer2D" parent="GameNodes/RatSpawner" unique_id=1954952835]
 stream = ExtResource("15_5newe")
 volume_db = -20.0
+
+[node name="SoundManager" type="Node2D" parent="GameNodes" unique_id=1118356706]
+script = ExtResource("16_bt5mj")
 
 [node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]

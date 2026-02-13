@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ItemDatabase="*uid://dyawl37uysnxf"
 RecipeDatabase="*uid://d1doe40jv0hhg"
+SoundManager="*uid://co4h33xqbu1ra"
 
 [display]
 

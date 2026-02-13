@@ -20,6 +20,6 @@ func _on_died() -> void:
 	motor.freeze()
 
 	anim_controller.play_anim(&"death")
-	death_sound.play()
+	SoundManager.play_player(death_sound)
 	await anim_controller.anim_finished
 	body.queue_free()

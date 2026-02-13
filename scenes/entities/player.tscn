@@ -165,6 +165,7 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="PickupArea" unique_id=733284756]
 stream = ExtResource("4_dqkch")
+volume_db = -20.0
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1390035105]
 script = ExtResource("5_qlg0r")

@@ -17,11 +17,5 @@ func try_place(tile_data: ItemData) -> bool:
 		return false
 
 	ground.set_cell(cell, source_id, tile_data.atlas_coords, 0)
-	play_place_sound(cell)
+	SoundManager.play_player(place_sound)
 	return true
-	
-func play_place_sound(cell_pos: Vector2i) -> void:
-	place_sound.pitch_scale = randf_range(0.8, 1.2)
-	place_sound.volume_db = -2 + randf_range(-2.0, 2.0)
-	place_sound.global_position = ground.to_global(ground.map_to_local(cell_pos))
-	place_sound.play()

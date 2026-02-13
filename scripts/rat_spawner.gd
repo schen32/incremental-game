@@ -16,4 +16,4 @@ func _process(delta: float) -> void:
 	rat.global_position = global_position
 	get_tree().current_scene.add_child(rat)
 	
-	spawn_sound.play()
+	SoundManager.play_player(spawn_sound)

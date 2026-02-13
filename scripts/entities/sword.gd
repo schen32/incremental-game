@@ -45,4 +45,4 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		return
 	area.apply_knockback(player.global_position, weapon_data.knockback_force)
 	
-	hit_sound.play()
+	SoundManager.play_player(hit_sound)
