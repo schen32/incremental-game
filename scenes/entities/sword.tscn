@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dwsl0bh5m2f8v"]
 
 [ext_resource type="Script" uid="uid://cbjfkpn4omipo" path="res://scripts/entities/sword.gd" id="1_1ayml"]
-[ext_resource type="Texture2D" uid="uid://bux3wr21evtkc" path="res://assets/ToolsAndDrops.png" id="1_3ehq0"]
-[ext_resource type="AudioStream" uid="uid://b47jqrsggbfyh" path="res://assets/sound_effects/Hit.wav" id="3_qecxl"]
+[ext_resource type="Texture2D" uid="uid://bswas5euhinko" path="res://assets/Spritesheets/Items1.png" id="2_qecxl"]
+[ext_resource type="AudioStream" uid="uid://b47jqrsggbfyh" path="res://assets/SoundEffects/Hit.wav" id="3_qecxl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ehq0"]
 radius = 6.0
@@ -51,11 +51,12 @@ script = ExtResource("1_1ayml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1639652939]
 rotation = -1.5707964
-texture = ExtResource("1_3ehq0")
+texture = ExtResource("2_qecxl")
 centered = false
 offset = Vector2(4, -20)
+flip_h = true
 region_enabled = true
-region_rect = Rect2(16, 16, 16, 16)
+region_rect = Rect2(0, 0, 16, 16)
 
 [node name="Hitbox" type="Area2D" parent="Sprite2D" unique_id=358487227]
 collision_layer = 16

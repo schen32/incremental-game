@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boswtdmugd05a"
-path="res://.godot/imported/tetris-Sheet.png-99f86147d07500b94d39ac850245a214.ctex"
+uid="uid://cyuph1ggn0k8x"
+path="res://.godot/imported/InventorySlots.png-794c76bd77dbeadc402f47d4c5afb60c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tetris-Sheet.png"
-dest_files=["res://.godot/imported/tetris-Sheet.png-99f86147d07500b94d39ac850245a214.ctex"]
+source_file="res://assets/Spritesheets/InventorySlots.png"
+dest_files=["res://.godot/imported/InventorySlots.png-794c76bd77dbeadc402f47d4c5afb60c.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bux3wr21evtkc"
-path="res://.godot/imported/ToolsAndDrops.png-048c749f4649230dba7852140e2c33e3.ctex"
+path="res://.godot/imported/ToolsAndDrops.png-60ad7899177134240f63a48337b26274.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ToolsAndDrops.png"
-dest_files=["res://.godot/imported/ToolsAndDrops.png-048c749f4649230dba7852140e2c33e3.ctex"]
+source_file="res://assets/Spritesheets/ToolsAndDrops.png"
+dest_files=["res://.godot/imported/ToolsAndDrops.png-60ad7899177134240f63a48337b26274.ctex"]
 
 [params]
 
