@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://qibpue3jtqho"]
+
+[ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="1_x152h"]
+[ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/Spritesheets/tetris-Sheet.png" id="2_e0hds"]
+
+[resource]
+script = ExtResource("1_x152h")
+id = &"copper"
+display_name = "Copper"
+texture = ExtResource("2_e0hds")
+atlas_coords = Vector2i(4, 0)
+is_placeable = true
+metadata/_custom_type_script = "uid://4pntbdlodnik"

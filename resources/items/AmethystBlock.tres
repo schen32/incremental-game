@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://t7oxmqw4ndwk"]
+
+[ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="1_5g6qh"]
+[ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/Spritesheets/tetris-Sheet.png" id="2_se1ws"]
+
+[resource]
+script = ExtResource("1_5g6qh")
+id = &"amethyst"
+display_name = "Amethyst"
+texture = ExtResource("2_se1ws")
+atlas_coords = Vector2i(2, 0)
+is_placeable = true
+metadata/_custom_type_script = "uid://4pntbdlodnik"

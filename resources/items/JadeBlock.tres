@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://rfytu0pd5ewl"]
+
+[ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="1_85g6g"]
+[ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/Spritesheets/tetris-Sheet.png" id="2_hkkjj"]
+
+[resource]
+script = ExtResource("1_85g6g")
+id = &"jade"
+display_name = "Jade"
+texture = ExtResource("2_hkkjj")
+atlas_coords = Vector2i(9, 0)
+is_placeable = true
+metadata/_custom_type_script = "uid://4pntbdlodnik"

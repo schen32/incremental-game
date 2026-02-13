@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://in3ldsh23gyt"]
+
+[ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="1_5lquu"]
+[ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/Spritesheets/tetris-Sheet.png" id="2_c75xf"]
+
+[resource]
+script = ExtResource("1_5lquu")
+id = &"gold"
+display_name = "Gold"
+texture = ExtResource("2_c75xf")
+is_placeable = true
+metadata/_custom_type_script = "uid://4pntbdlodnik"

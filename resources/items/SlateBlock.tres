@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://type4x63sxd8"]
+
+[ext_resource type="Script" uid="uid://4pntbdlodnik" path="res://resources/items/ItemData.gd" id="1_kh7ne"]
+[ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/Spritesheets/tetris-Sheet.png" id="2_5dr2u"]
+
+[resource]
+script = ExtResource("1_kh7ne")
+id = &"slate"
+display_name = "Slate"
+texture = ExtResource("2_5dr2u")
+atlas_coords = Vector2i(10, 0)
+is_placeable = true
+metadata/_custom_type_script = "uid://4pntbdlodnik"
