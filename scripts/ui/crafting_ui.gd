@@ -3,7 +3,7 @@ extends Control
 @export var slot_scene: PackedScene
 @export var style_box: StyleBoxFlat
 @onready var recipe_grid: GridContainer = $ScrollContainer/RecipeGrid
-@onready var tooltip: Panel = $"../Tooltip"
+@onready var tooltip: Panel = $"../TooltipUI"
 
 func _ready() -> void:
 	_refresh()

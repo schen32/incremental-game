@@ -3,23 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://ymkck3m223ml" path="res://scenes/ui/hotbar_ui.tscn" id="1_yubou"]
 [ext_resource type="PackedScene" uid="uid://cr866fpqwtukv" path="res://scenes/ui/inventory_ui.tscn" id="2_rns2u"]
 [ext_resource type="PackedScene" uid="uid://cpyka0r0wfseu" path="res://scenes/ui/crafting_ui.tscn" id="3_bma8u"]
-[ext_resource type="Script" uid="uid://dlgfvauwcwbjp" path="res://scripts/ui/tooltip.gd" id="4_fct72"]
 [ext_resource type="StyleBox" uid="uid://byptgumusm4ue" path="res://resources/styles/style_box_flat1.tres" id="4_yvtb5"]
-[ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="5_ru5ln"]
+[ext_resource type="PackedScene" uid="uid://ccfj47t65jx2h" path="res://scenes/ui/tooltip_ui.tscn" id="5_ru5ln"]
 [ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/inventory_slot.tscn" id="5_v1bdg"]
-[ext_resource type="StyleBox" uid="uid://dtgi56g27v6bd" path="res://resources/styles/style_box_flat2.tres" id="6_qrkc0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bma8u"]
-bg_color = Color(0.11764706, 0.12156863, 0.16862746, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.43137255, 0.48235294, 0.6392157, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[ext_resource type="Script" uid="uid://bwkxr5im1m4" path="res://scripts/ui/held_item.gd" id="6_v1bdg"]
+[ext_resource type="StyleBox" uid="uid://c5pi0cgtifive" path="res://resources/styles/style_box_flat3.tres" id="7_yvtb5"]
 
 [node name="GameUI" type="CanvasLayer" unique_id=738382559]
 
@@ -55,69 +43,16 @@ offset_bottom = 72.0
 scale = Vector2(0.6, 0.6)
 style_box = ExtResource("4_yvtb5")
 
-[node name="Tooltip" type="Panel" parent="Inventory" unique_id=1655032281]
+[node name="TooltipUI" parent="Inventory" unique_id=1888124438 instance=ExtResource("5_ru5ln")]
 layout_mode = 0
-offset_right = 144.0
-offset_bottom = 152.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bma8u")
-script = ExtResource("4_fct72")
-slot_scene = ExtResource("5_v1bdg")
-style_box = ExtResource("6_qrkc0")
 
-[node name="ItemName" type="Label" parent="Inventory/Tooltip" unique_id=1864652982]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 8.0
-offset_right = 96.0
-offset_bottom = 31.0
-theme_override_fonts/font = ExtResource("5_ru5ln")
-theme_override_font_sizes/font_size = 12
-text = "Name"
-
-[node name="Description" type="Label" parent="Inventory/Tooltip" unique_id=1970269602]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 135.0
-offset_bottom = 47.0
-theme_override_fonts/font = ExtResource("5_ru5ln")
-theme_override_font_sizes/font_size = 10
-text = "Item description"
-
-[node name="Input" type="Label" parent="Inventory/Tooltip" unique_id=1779870937]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 56.0
-offset_right = 59.0
-offset_bottom = 79.0
-theme_override_fonts/font = ExtResource("5_ru5ln")
-theme_override_font_sizes/font_size = 12
-text = "Input"
-
-[node name="InputGrid" type="GridContainer" parent="Inventory/Tooltip" unique_id=1272016548]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 72.0
-offset_right = 48.0
-offset_bottom = 112.0
+[node name="HeldItem" type="Control" parent="Inventory" unique_id=478602344]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 scale = Vector2(0.6, 0.6)
-columns = 5
+script = ExtResource("6_v1bdg")
+style_box = ExtResource("7_yvtb5")
 
-[node name="Output" type="Label" parent="Inventory/Tooltip" unique_id=1157549410]
+[node name="HeldSlot" parent="Inventory/HeldItem" unique_id=1779448498 instance=ExtResource("5_v1bdg")]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 104.0
-offset_right = 59.0
-offset_bottom = 127.0
-theme_override_fonts/font = ExtResource("5_ru5ln")
-theme_override_font_sizes/font_size = 12
-text = "Output"
-
-[node name="OutputGrid" type="GridContainer" parent="Inventory/Tooltip" unique_id=1087870427]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 120.0
-offset_right = 48.0
-offset_bottom = 160.0
-scale = Vector2(0.6, 0.6)
-columns = 5

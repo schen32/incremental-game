@@ -26,7 +26,7 @@ func show_tooltip(index: int) -> void:
 	
 	_refresh(recipe_data)
 	
-func hide_tooltip(index: int) -> void:
+func hide_tooltip(_index: int) -> void:
 	visible = false
 
 func _refresh(recipe_data: RecipeData) -> void:
@@ -34,17 +34,17 @@ func _refresh(recipe_data: RecipeData) -> void:
 	_clear_children(output_grid)
 
 	for key in recipe_data.inputs.keys():
-		var ui_slot = slot_scene.instantiate()
-		input_grid.add_child(ui_slot)
+		var input_ui_slot = slot_scene.instantiate()
+		input_grid.add_child(input_ui_slot)
 		
-		ui_slot.set_slot(key, recipe_data.inputs[key])
-		ui_slot.add_theme_stylebox_override(&"panel", style_box)
+		input_ui_slot.set_slot(key, recipe_data.inputs[key])
+		input_ui_slot.add_theme_stylebox_override(&"panel", style_box)
 		
-	var ui_slot = slot_scene.instantiate()
-	output_grid.add_child(ui_slot)
+	var output_ui_slot = slot_scene.instantiate()
+	output_grid.add_child(output_ui_slot)
 
-	ui_slot.set_slot(recipe_data.output_id, recipe_data.output_amount)
-	ui_slot.add_theme_stylebox_override(&"panel", style_box)
+	output_ui_slot.set_slot(recipe_data.output_id, recipe_data.output_amount)
+	output_ui_slot.add_theme_stylebox_override(&"panel", style_box)
 
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():
