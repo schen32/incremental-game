@@ -5,19 +5,22 @@ extends Control
 @onready var recipe_grid: GridContainer = $ScrollContainer/RecipeGrid
 @onready var tooltip: Panel = $"../TooltipUI"
 @onready var craft_item: Node2D = $"../../../GameScripts/CraftItem"
+@onready var available_recipes: Node2D = $"../../../GameScripts/AvailableRecipes"
 
 func _ready() -> void:
 	_refresh()
+	available_recipes.changed.connect(_refresh)
 
 func _refresh() -> void:
 	_clear_children(recipe_grid)
 
 	var i = 0
-	for recipe in RecipeDatabase.recipes:
+	for entry in available_recipes.recipes:
 		var ui_slot = slot_scene.instantiate()
 		recipe_grid.add_child(ui_slot)
 		ui_slot.index = i
-		ui_slot.set_slot(recipe, 1)
+		ui_slot.set_slot(entry.recipe.output_id, entry.recipe.output_amount)
+		ui_slot.set_highlight(entry.can_craft)
 		ui_slot.add_theme_stylebox_override(&"panel", style_box)
 		
 		ui_slot.hovered.connect(tooltip.show_tooltip)

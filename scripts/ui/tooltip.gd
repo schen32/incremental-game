@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 func show_tooltip(index: int) -> void:
 	visible = true
 	
-	var recipe_data: RecipeData = available.recipes[index]
+	var recipe_data: RecipeData = available.recipes[index].recipe
 	var output_data: ItemData = ItemDatabase.get_item(recipe_data.output_id)
 	item_name.text = output_data.display_name
 	

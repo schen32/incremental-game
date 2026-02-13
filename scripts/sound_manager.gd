@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func play_stream(
 	stream: AudioStream,
-	position: Vector2,
+	play_position: Vector2,
 	base_volume_db: float = 0.0,
 	base_pitch: float = 1.0,
 	pitch_variation: float = -1.0,
@@ -37,7 +37,7 @@ func play_stream(
 		p.stop()
 
 	p.stream = stream
-	p.global_position = position
+	p.global_position = play_position
 
 	# defaults (per-call overrides)
 	var pv := default_pitch_variation if pitch_variation < 0.0 else pitch_variation
@@ -55,7 +55,7 @@ func play_stream(
 
 func play_player(
 	player: AudioStreamPlayer2D,
-	position: Vector2 = Vector2.ZERO,
+	play_position: Vector2 = Vector2.ZERO,
 	pitch_variation: float = -1.0,
 	volume_variation_db: float = -1.0
 ) -> void:
@@ -65,7 +65,7 @@ func play_player(
 
 	play_stream(
 		player.stream,
-		position,
+		play_position,
 		player.volume_db,
 		player.pitch_scale,
 		pitch_variation,
