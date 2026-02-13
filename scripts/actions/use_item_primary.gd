@@ -29,5 +29,3 @@ func _process(delta: float) -> void:
 			destroy_tile.try_break(delta)
 		else:
 			destroy_tile.cancel_break()
-	elif Input.is_action_just_pressed("use_primary"):
-		pass

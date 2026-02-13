@@ -1,4 +1,5 @@
 extends Node2D
+class_name Motor
 
 @onready var body: CharacterBody2D = get_parent()
 
@@ -11,14 +12,15 @@ func request_knockback(v: Vector2) -> void:
 func freeze() -> void:
 	frozen = true
 
+func unfreeze() -> void:
+	frozen = false
+
 func _physics_process(delta: float) -> void:
 	if frozen:
 		body.velocity = Vector2.ZERO
 		body.move_and_slide()
+		external_velocity = Vector2.ZERO
 		return
 
-	# base velocity comes from AI script (it sets body.velocity.x, gravity, etc.)
 	body.velocity += external_velocity
-	external_velocity = external_velocity.move_toward(Vector2.ZERO, 2000.0 * delta)
-
 	body.move_and_slide()

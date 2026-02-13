@@ -6,8 +6,11 @@ var knockback: Vector2 = Vector2.ZERO
 @onready var motor: Node2D = $"../Motor"
 
 func _physics_process(delta: float) -> void:
-	motor.request_knockback(knockback)
-	knockback = knockback.move_toward(Vector2.ZERO, drag * delta)
+	if knockback.length_squared() > 0.01:
+		motor.request_knockback(knockback)
+		knockback = knockback.move_toward(Vector2.ZERO, drag * delta)
+	else:
+		knockback = Vector2.ZERO
 
 func apply_knockback(dir: Vector2, force: float) -> void:
-	knockback = dir * force
+	knockback = dir.normalized() * force
