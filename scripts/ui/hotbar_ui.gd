@@ -29,7 +29,7 @@ func _refresh() -> void:
 			ui_slot.set_slot(&"", 0)
 		ui_slot.add_theme_stylebox_override(&"panel", style_box)
 
-		ui_slot.set_selected(i == player_inventory.selected_hotbar_index)
+		ui_slot.set_highlight(i == player_inventory.selected_hotbar_index)
 	
 	var selected_item = player_inventory.get_selected_item()
 	item_name.text = &""

@@ -30,7 +30,7 @@ func set_slot(item_id: StringName, amount: int) -> void:
 
 	count.text = str(amount) if amount > 0 else ""
 
-func set_selected(on: bool) -> void:
+func set_highlight(on: bool) -> void:
 	modulate = Color(1.0, 1.0, 1.0) if on else Color(0.6, 0.6, 0.6)
 
 func _gui_input(event: InputEvent) -> void:

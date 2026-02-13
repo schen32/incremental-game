@@ -7,10 +7,14 @@ extends Node2D
 func craft_recipe(index: int, button: int) -> void:
 	if button != MOUSE_BUTTON_LEFT:
 		return
-	if inventory_move_items.held_stack != null:
+
+	var recipe: RecipeData = available_recipes.recipes[index]
+	if inventory_move_items.held_stack != null and inventory_move_items.held_stack.id != recipe.output_id:
 		return
-	
-	var recipe = available_recipes.recipes[index]
 	if not player_inventory.consume_requirements(recipe.inputs):
 		return
-	inventory_move_items.held_stack = player_inventory.new_item_stack(recipe.output_id, recipe.output_amount)
+
+	if inventory_move_items.held_stack == null:
+		inventory_move_items.set_held(player_inventory.new_item_stack(recipe.output_id, recipe.output_amount))
+	else:
+		inventory_move_items.add_to_held(recipe.output_id, recipe.output_amount)
