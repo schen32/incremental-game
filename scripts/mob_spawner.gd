@@ -2,8 +2,8 @@ extends Node2D
 
 @export var mob_scene: PackedScene
 
-@export var spawn_interval := 1.0
-@export var spawn_chance := 0.2
+@export var spawn_interval := 3     # seconds between spawn checks
+@export var spawn_chance := 0.01      # chance PER CELL per interval
 @export var max_mobs := 20
 
 @onready var spawn_sound: AudioStreamPlayer2D = $SpawnSound
@@ -23,20 +23,28 @@ func _process(delta: float) -> void:
 		return
 	_acc = 0.0
 
-	if randf() > spawn_chance:
-		return
-
-	if get_tree().get_nodes_in_group("mobs").size() >= max_mobs:
+	var existing := get_tree().get_nodes_in_group("mobs").size()
+	if existing >= max_mobs:
 		return
 
 	if spawn_cells.is_empty():
 		return
 
-	var cell := spawn_cells[randi() % spawn_cells.size()]
-	_spawn_cell(cell)
+	# shuffle so spawn distribution is fair, and we can early-exit on max_mobs
+	spawn_cells.shuffle()
 
-	if spawn_sound:
-		SoundManager.play_player(spawn_sound, world.cell_to_world(cell))
+	for cell in spawn_cells:
+		if existing >= max_mobs:
+			break
+
+		# independent roll per cell
+		if randf() <= spawn_chance:
+			_spawn_cell(cell)
+			existing += 1
+
+			if spawn_sound:
+				SoundManager.play_player(spawn_sound, world.cell_to_world(cell))
+
 
 func _spawn_cell(air_cell: Vector2i) -> void:
 	var mob := mob_scene.instantiate()
