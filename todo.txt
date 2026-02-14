@@ -3,9 +3,7 @@ Skyblock like Incremental Game?
 - quest tree
 - map/mini-map
 - build something -> spawn mob -> get their drops -> craft
-- crafting
-- every block type can spawn a different mob (needs certain light level?)
-- punch/knockback mobs
+- different blocks spawn different mobs
 
 Next Game Ideas
 - multiplayer platforming race game

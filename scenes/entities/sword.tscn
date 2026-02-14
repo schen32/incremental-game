@@ -41,10 +41,10 @@ tracks/0/path = NodePath("Pivot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.06666666, 0, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [4.71238898038469, 4.71238898038469, 0.7853981633974483]
+"values": [4.71238898038469, 0.7853981633974483]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qecxl"]
