@@ -1,17 +1,25 @@
 extends Node2D
 
-@export var spawn_table := {}
+# tile_id (from TileSet custom data "item") -> PackedScene
+@export var spawn_table: Dictionary = {}   # e.g. { &"grass": preload("res://mobs/slime.tscn"), &"stone": preload("res://mobs/golem.tscn") }
 
-@export var spawn_interval := 5     # seconds between spawn checks
-@export var spawn_chance := 0.1      # chance PER CELL per interval
-@export var max_mobs := 20
+@export var spawn_interval := 5.0          # seconds between spawn checks
+@export var spawn_chance := 0.01            # chance PER CELL per interval
+@export var max_mobs := 100                 # global cap (still applies)
+
+# per-block caps
+@export var default_max_per_block := 20     # if a block id isn't in max_per_block
+@export var max_per_block: Dictionary = {} # e.g. { &"grass": 10, &"stone": 3, &"sand": 6 }
 
 @onready var spawn_sound: AudioStreamPlayer2D = $SpawnSound
-@onready var world: Node2D = $"../WorldBlocks"
+@onready var world: Node2D = $"../WorldBlocks" # expects world.tilemap: TileMapLayer and helpers
 
 var spawn_cells: Array[Vector2i] = []
 var spawn_set := {} # Dictionary used as a set: cell -> true
 var _acc := 0.0
+
+# tracks alive mob counts per block id (tile custom data "item")
+var alive_by_block: Dictionary = {} # tile_id -> int
 
 func _ready() -> void:
 	world.block_changed.connect(_on_block_changed)
@@ -26,51 +34,60 @@ func _process(delta: float) -> void:
 	var existing := get_tree().get_nodes_in_group("mobs").size()
 	if existing >= max_mobs:
 		return
-
 	if spawn_cells.is_empty():
 		return
 
-	# shuffle so spawn distribution is fair, and we can early-exit on max_mobs
 	spawn_cells.shuffle()
 
 	for cell in spawn_cells:
 		if existing >= max_mobs:
 			break
+		if randf() > spawn_chance:
+			continue
 
-		# independent roll per cell
-		if randf() <= spawn_chance:
-			var mob := _pick_mob_for_cell(cell)
-			if mob == null:
-				continue
-			_spawn_cell_with(mob, cell)
-			existing += 1
+		var tile_id := _get_block_id_for_air_cell(cell)
+		if tile_id == &"":
+			continue
 
-			if spawn_sound:
-				SoundManager.play_player(spawn_sound, world.cell_to_world(cell))
+		# enforce per-block cap
+		var cap := int(max_per_block.get(tile_id, default_max_per_block))
+		var current := int(alive_by_block.get(tile_id, 0))
+		if current >= cap:
+			continue
 
-func _pick_mob_for_cell(air_cell: Vector2i) -> PackedScene:
+		var scene: PackedScene = spawn_table.get(tile_id, null)
+		if scene == null:
+			continue
+
+		var mob := _spawn_cell_with(scene, cell)
+		existing += 1
+
+		# increment + decrement on despawn
+		alive_by_block[tile_id] = current + 1
+		mob.tree_exited.connect(func():
+			alive_by_block[tile_id] = max(0, int(alive_by_block.get(tile_id, 0)) - 1)
+		)
+
+		if spawn_sound:
+			SoundManager.play_player(spawn_sound, world.cell_to_world(cell))
+
+func _get_block_id_for_air_cell(air_cell: Vector2i) -> StringName:
 	var ground := air_cell + Vector2i(0, 1)
-
 	var tile_data = world.tilemap.get_cell_tile_data(ground)
 	if tile_data == null:
-		return null
-
+		return &""
 	if not tile_data.has_custom_data("item"):
-		return null
+		return &""
+	return tile_data.get_custom_data("item")
 
-	var tile_id: StringName = tile_data.get_custom_data("item")
-	return spawn_table.get(tile_id, null)
-
-func _spawn_cell_with(scene: PackedScene, air_cell: Vector2i) -> void:
+func _spawn_cell_with(scene: PackedScene, air_cell: Vector2i) -> Node:
 	var mob := scene.instantiate()
 	get_tree().current_scene.add_child(mob)
 	mob.global_position = world.cell_to_world(air_cell)
 	mob.add_to_group("mobs")
+	return mob
 
 func _on_block_changed(cell: Vector2i) -> void:
-	# a change affects spawnability of:
-	# - the tile itself (as ground)
-	# - the tile below (its "above" might have changed)
 	_update_cell_as_ground(cell)
 	_update_cell_as_ground(cell + Vector2i(0, 1))
 
