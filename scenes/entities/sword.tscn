@@ -4,16 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bswas5euhinko" path="res://assets/Spritesheets/Items1.png" id="2_qecxl"]
 [ext_resource type="AudioStream" uid="uid://b47jqrsggbfyh" path="res://assets/SoundEffects/Hit.wav" id="3_qecxl"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ehq0"]
-radius = 6.0
-height = 20.0
-
 [sub_resource type="Animation" id="Animation_3ehq0"]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath("Pivot/Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,6 +18,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [-1.5707963267948966]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_1ayml"]
 resource_name = "attack"
@@ -29,14 +37,14 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("Pivot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(-0.06666666, 0, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-1.5707963267948966, 3.141592653589793]
+"values": [4.71238898038469, 4.71238898038469, 0.7853981633974483]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qecxl"]
@@ -45,11 +53,24 @@ _data = {
 &"attack": SubResource("Animation_1ayml")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ehq0"]
+radius = 6.0
+height = 20.0
+
 [node name="sword" type="Node2D" unique_id=22069868]
-rotation = 3.1415927
+rotation = -1.5707964
 script = ExtResource("1_1ayml")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1639652939]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440362667]
+libraries/ = SubResource("AnimationLibrary_qecxl")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1237791398]
+stream = ExtResource("3_qecxl")
+volume_db = -10.0
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1061552346]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=1639652939]
 rotation = -1.5707964
 texture = ExtResource("2_qecxl")
 centered = false
@@ -58,18 +79,12 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="Hitbox" type="Area2D" parent="Sprite2D" unique_id=358487227]
+[node name="Hitbox" type="Area2D" parent="Pivot" unique_id=358487227]
+rotation = -1.5707964
 collision_layer = 16
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hitbox" unique_id=1642716605]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox" unique_id=1642716605]
 position = Vector2(12, -12)
 rotation = 0.7853982
 shape = SubResource("CapsuleShape2D_3ehq0")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440362667]
-libraries/ = SubResource("AnimationLibrary_qecxl")
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1237791398]
-stream = ExtResource("3_qecxl")
-volume_db = -10.0

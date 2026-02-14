@@ -3,10 +3,11 @@ extends Node2D
 @export var weapon_data: WeaponData
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var hitbox: Area2D = $Sprite2D/Hitbox
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var hitbox: Area2D = $Pivot/Hitbox
+@onready var sprite: Sprite2D = $Pivot/Sprite2D
 @onready var player: CharacterBody2D = $"../../"
 @onready var hit_sound: AudioStreamPlayer2D = $HitSound
+@onready var pivot: Node2D = $Pivot
 
 func _ready() -> void:
 	hitbox.monitoring = false
@@ -24,9 +25,9 @@ func attack(data: WeaponData) -> void:
 	
 	var dir := (get_global_mouse_position() - player.global_position).normalized()
 	if dir.x < 0:
-		scale.x = -1
-	else:
 		scale.x = 1
+	else:
+		scale.x = -1
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":

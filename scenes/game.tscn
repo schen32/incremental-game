@@ -140,7 +140,7 @@ script = ExtResource("10_kvpfn")
 shape = SubResource("WorldBoundaryShape2D_vtaks")
 
 [node name="RespawnPoint" type="Marker2D" parent="GameNodes" unique_id=1291392203]
-position = Vector2(96, 216)
+position = Vector2(96, 232)
 
 [node name="ItemDatabase" type="Node2D" parent="GameNodes" unique_id=598196364]
 script = ExtResource("12_trtic")
