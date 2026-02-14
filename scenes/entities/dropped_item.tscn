@@ -12,7 +12,7 @@ lock_rotation = true
 script = ExtResource("1_jvkj8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014789888]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.6, 0.6)
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 16)
 

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtspl31lbyi17" path="res://scenes/components/health_bar.tscn" id="4_6s34g"]
 [ext_resource type="AudioStream" uid="uid://cn7kaudjs6vh2" path="res://assets/SoundEffects/Death.wav" id="5_702ld"]
 [ext_resource type="PackedScene" uid="uid://2vvnt2mtja3v" path="res://scenes/components/on_death.tscn" id="5_ty1l7"]
+[ext_resource type="PackedScene" uid="uid://xikuc4phd042" path="res://scenes/entities/dropped_item.tscn" id="5_ywisg"]
 [ext_resource type="PackedScene" uid="uid://cmx141bdrgjrw" path="res://scenes/components/fall_damage.tscn" id="6_f4725"]
 [ext_resource type="Script" uid="uid://ykrlvoj8p6th" path="res://scripts/components/hurtbox.gd" id="7_7dqwd"]
 [ext_resource type="Script" uid="uid://clxwrwskqudi0" path="res://scripts/components/knockback.gd" id="8_5oq54"]
@@ -121,6 +122,7 @@ max_health = 20
 position = Vector2(0, 4)
 
 [node name="OnDeath" parent="." unique_id=556730445 instance=ExtResource("5_ty1l7")]
+dropped_item = ExtResource("5_ywisg")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="OnDeath" unique_id=2139707668]
 stream = ExtResource("5_702ld")
