@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bavm2dy61wesg"]
+[gd_scene format=4 uid="uid://bavm2dy61wesg"]
 
 [ext_resource type="Script" uid="uid://d0vgyiot1i43h" path="res://scripts/tile/highlight_tile.gd" id="1_iywne"]
 [ext_resource type="Script" uid="uid://1dck2c0yg7ju" path="res://scripts/tile/destroy_tile.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bdirokky8005j" path="res://scenes/entities/player.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bjbob2uc0ov24" path="res://scenes/background.tscn" id="3_iywne"]
-[ext_resource type="PackedScene" uid="uid://b7t10nfcdrwrm" path="res://scenes/tiles.tscn" id="3_p57ef"]
+[ext_resource type="Texture2D" uid="uid://boswtdmugd05a" path="res://assets/Spritesheets/tetris-Sheet.png" id="4_bt5mj"]
 [ext_resource type="AudioStream" uid="uid://dk0msq32blpdq" path="res://assets/SoundEffects/Break.wav" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://xikuc4phd042" path="res://scenes/entities/dropped_item.tscn" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://3h6s6kcw015c" path="res://scripts/tile/place_tile.gd" id="8_0tnpc"]
@@ -21,8 +21,51 @@
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/SoundEffects/Pop.mp3" id="15_5newe"]
 [ext_resource type="Script" uid="uid://pfe76iooumwg" path="res://scripts/actions/craft_item.gd" id="15_37s47"]
 [ext_resource type="Script" uid="uid://co4h33xqbu1ra" path="res://scripts/sound_manager.gd" id="16_bt5mj"]
-[ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/rat_spawner.gd" id="20_1kice"]
+[ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/mob_spawner.gd" id="20_1kice"]
 [ext_resource type="Script" uid="uid://d1doe40jv0hhg" path="res://scripts/globals/recipe_database.gd" id="21_37s47"]
+[ext_resource type="Script" uid="uid://d3mttmi21qeux" path="res://scripts/world_blocks.gd" id="23_e1j6l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1j6l"]
+texture = ExtResource("4_bt5mj")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = &"gold"
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/custom_data_0 = &"grass"
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_0 = &"amethyst"
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/custom_data_0 = &"ice"
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/custom_data_0 = &"copper"
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/custom_data_0 = &"rose"
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0/custom_data_0 = &"mint"
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0/custom_data_0 = &"stone"
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0/custom_data_0 = &"dirt"
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0/custom_data_0 = &"jade"
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:0/0/custom_data_0 = &"slate"
+
+[sub_resource type="TileSet" id="TileSet_pl11u"]
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "item"
+custom_data_layer_0/type = 21
+sources/0 = SubResource("TileSetAtlasSource_e1j6l")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -704.0
@@ -34,7 +77,11 @@ position = Vector2(96, 248)
 
 [node name="Background" parent="." unique_id=2029619789 instance=ExtResource("3_iywne")]
 
-[node name="AllTiles" parent="." unique_id=943544180 instance=ExtResource("3_p57ef")]
+[node name="AllTiles" type="Node2D" parent="." unique_id=1860860785]
+
+[node name="Tiles" type="TileMapLayer" parent="AllTiles" unique_id=183586924]
+tile_map_data = PackedByteArray("AAAAABEAAAABAAAAAAAAABIAAAABAAAAAAABABEAAAABAAAAAAABABIAAAABAAAAAAACABEAAAABAAAAAAACABIAAAABAAAAAAADABEAAAABAAAAAAADABIAAAABAAAAAAAEABEAAAABAAAAAAAEABIAAAABAAAAAAAFABEAAAABAAAAAAAFABIAAAABAAAAAAAGABEAAAABAAAAAAAGABIAAAABAAAAAAAHABEAAAABAAAAAAAHABIAAAABAAAAAAAIABEAAAABAAAAAAAIABIAAAABAAAAAAAAABAAAAABAAAAAAABABAAAAABAAAAAAACABAAAAABAAAAAAADABAAAAABAAAAAAAEABAAAAABAAAAAAAFABAAAAABAAAAAAAGABAAAAABAAAAAAAHABAAAAABAAAAAAAIABAAAAABAAAAAAAAABMAAAAIAAAAAAAAABQAAAAIAAAAAAAAABUAAAAIAAAAAAAAABYAAAAIAAAAAAAAABcAAAAIAAAAAAAAABgAAAAIAAAAAAABABMAAAAIAAAAAAABABQAAAAIAAAAAAABABUAAAAIAAAAAAABABYAAAAIAAAAAAABABcAAAAIAAAAAAABABgAAAAIAAAAAAACABMAAAAIAAAAAAACABQAAAAIAAAAAAACABUAAAAIAAAAAAACABYAAAAIAAAAAAACABcAAAAIAAAAAAACABgAAAAIAAAAAAADABMAAAAIAAAAAAADABQAAAAIAAAAAAADABUAAAAIAAAAAAADABYAAAAIAAAAAAADABcAAAAIAAAAAAADABgAAAAIAAAAAAAEABMAAAAIAAAAAAAEABQAAAAIAAAAAAAEABUAAAAIAAAAAAAEABYAAAAIAAAAAAAEABcAAAAIAAAAAAAEABgAAAAIAAAAAAAFABMAAAAIAAAAAAAFABQAAAAIAAAAAAAFABUAAAAIAAAAAAAFABYAAAAIAAAAAAAFABcAAAAIAAAAAAAFABgAAAAIAAAAAAAGABMAAAAIAAAAAAAGABQAAAAIAAAAAAAGABUAAAAIAAAAAAAGABYAAAAIAAAAAAAGABcAAAAIAAAAAAAGABgAAAAIAAAAAAAHABMAAAAIAAAAAAAHABQAAAAIAAAAAAAHABUAAAAIAAAAAAAHABYAAAAIAAAAAAAHABcAAAAIAAAAAAAHABgAAAAIAAAAAAAIABMAAAAIAAAAAAAIABQAAAAIAAAAAAAIABUAAAAIAAAAAAAIABYAAAAIAAAAAAAIABcAAAAIAAAAAAAIABgAAAAIAAAAAAAJABAAAAABAAAAAAAJABEAAAABAAAAAAAJABIAAAABAAAAAAAKABAAAAABAAAAAAAKABEAAAABAAAAAAAKABIAAAABAAAAAAALABAAAAABAAAAAAALABEAAAABAAAAAAALABIAAAABAAAAAAAJABMAAAAIAAAAAAAJABQAAAAIAAAAAAAJABUAAAAIAAAAAAAJABYAAAAIAAAAAAAJABcAAAAIAAAAAAAJABgAAAAIAAAAAAAKABMAAAAIAAAAAAAKABQAAAAIAAAAAAAKABUAAAAIAAAAAAAKABYAAAAIAAAAAAAKABcAAAAIAAAAAAAKABgAAAAIAAAAAAALABMAAAAIAAAAAAALABQAAAAIAAAAAAALABUAAAAIAAAAAAALABYAAAAIAAAAAAALABcAAAAIAAAAAAALABgAAAAIAAAAAAAMABAAAAABAAAAAAANABAAAAABAAAAAAAOABAAAAABAAAAAAAPABAAAAABAAAAAAAQABAAAAABAAAAAAARABAAAAABAAAAAAASABAAAAABAAAAAAATABAAAAABAAAAAAAUABAAAAABAAAAAAAVABAAAAABAAAAAAAWABAAAAABAAAAAAAXABAAAAABAAAAAAD1/xAAAAABAAAAAAD2/xAAAAABAAAAAAD3/xAAAAABAAAAAAD4/xAAAAABAAAAAAD5/xAAAAABAAAAAAD6/xAAAAABAAAAAAD7/xAAAAABAAAAAAD8/xAAAAABAAAAAAD9/xAAAAABAAAAAAD+/xAAAAABAAAAAAD//xAAAAABAAAAAAD3/wwAAAAEAAAAAAD3/w0AAAAEAAAAAAD4/wwAAAAFAAAAAAD4/w0AAAAFAAAAAAD5/wwAAAAGAAAAAAD5/w0AAAAGAAAAAAD6/wwAAAAHAAAAAAD6/w0AAAAHAAAAAAD7/wwAAAAIAAAAAAD7/w0AAAAIAAAAAAD8/wwAAAAJAAAAAAD8/w0AAAAJAAAAAAD9/wwAAAAKAAAAAAD9/w0AAAAKAAAAAADz/wwAAAAAAAAAAADz/w0AAAAAAAAAAAD0/wwAAAABAAAAAAD0/w0AAAABAAAAAAD1/wwAAAACAAAAAAD1/w0AAAACAAAAAAD2/wwAAAADAAAAAAD2/w0AAAADAAAAAADx/xAAAAABAAAAAADy/xAAAAABAAAAAADz/xAAAAABAAAAAAD0/xAAAAABAAAAAAABAAoAAAABAAAAAAABAAsAAAABAAAAAAABAAwAAAABAAAAAAACAAkAAAABAAAAAAACAAoAAAABAAAAAAACAAsAAAABAAAAAAACAAwAAAAIAAAAAAADAAgAAAABAAAAAAADAAkAAAABAAAAAAADAAoAAAABAAAAAAADAAsAAAABAAAAAAADAAwAAAABAAAAAAAEAAkAAAABAAAAAAAEAAoAAAABAAAAAAAEAAsAAAABAAAAAAAEAAwAAAABAAAAAAAFAAoAAAABAAAAAAAFAAsAAAABAAAAAAAFAAwAAAABAAAAAAD//woAAAABAAAAAAD//wsAAAABAAAAAAD//wwAAAABAAAAAAAAAAkAAAABAAAAAAAAAAoAAAABAAAAAAAAAAsAAAABAAAAAAAAAAwAAAABAAAAAAABAAgAAAABAAAAAAABAAkAAAABAAAAAAACAAgAAAABAAAAAAACAA0AAAAIAAAAAAACAA4AAAAIAAAAAAACAA8AAAAIAAAAAAA=")
+tile_set = SubResource("TileSet_pl11u")
 
 [node name="GameScripts" type="Node2D" parent="." unique_id=1256118741]
 
@@ -101,15 +148,17 @@ script = ExtResource("12_trtic")
 [node name="RecipeDatabase" type="Node2D" parent="GameNodes" unique_id=422731932]
 script = ExtResource("21_37s47")
 
-[node name="RatSpawner" type="Node2D" parent="GameNodes" unique_id=1969273863]
+[node name="WorldBlocks" type="Node2D" parent="GameNodes" unique_id=110175112 node_paths=PackedStringArray("tilemap")]
+script = ExtResource("23_e1j6l")
+tilemap = NodePath("../../AllTiles/Tiles")
+
+[node name="MobSpawner" type="Node2D" parent="GameNodes" unique_id=1969273863]
+visible = false
 position = Vector2(216, 224)
 script = ExtResource("20_1kice")
-rat_scene = ExtResource("12_dinhu")
+mob_scene = ExtResource("12_dinhu")
 
-[node name="Marker2D" type="Marker2D" parent="GameNodes/RatSpawner" unique_id=1241602668]
-position = Vector2(200, 224)
-
-[node name="SpawnSound" type="AudioStreamPlayer2D" parent="GameNodes/RatSpawner" unique_id=1954952835]
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="GameNodes/MobSpawner" unique_id=1954952835]
 stream = ExtResource("15_5newe")
 volume_db = -20.0
 
