@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://dnbs7eou2fmxy" path="res://assets/SoundEffects/Pop.mp3" id="15_5newe"]
 [ext_resource type="Script" uid="uid://pfe76iooumwg" path="res://scripts/actions/craft_item.gd" id="15_37s47"]
 [ext_resource type="Script" uid="uid://co4h33xqbu1ra" path="res://scripts/sound_manager.gd" id="16_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://cyy4irelo67cr" path="res://assets/Spritesheets/Dimensional_Portal.png" id="17_bhx41"]
 [ext_resource type="Script" uid="uid://b4n2wrnyuj1bi" path="res://scripts/mob_spawner.gd" id="20_1kice"]
 [ext_resource type="Script" uid="uid://d1doe40jv0hhg" path="res://scripts/globals/recipe_database.gd" id="21_37s47"]
 [ext_resource type="PackedScene" uid="uid://bpli5t0y0omtm" path="res://scenes/entities/snake.tscn" id="22_pl11u"]
@@ -71,12 +72,63 @@ sources/0 = SubResource("TileSetAtlasSource_e1j6l")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 distance = -704.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnb83"]
+atlas = ExtResource("17_bhx41")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sww3w"]
+atlas = ExtResource("17_bhx41")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suyxu"]
+atlas = ExtResource("17_bhx41")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgl2t"]
+atlas = ExtResource("17_bhx41")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qouja"]
+atlas = ExtResource("17_bhx41")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wljb1"]
+atlas = ExtResource("17_bhx41")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_js0lu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnb83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sww3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suyxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgl2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qouja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wljb1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Game" type="Node2D" unique_id=1635684854]
 
 [node name="Player" parent="." unique_id=1146450175 instance=ExtResource("2_lbhrr")]
 position = Vector2(96, 248)
 
 [node name="Background" parent="." unique_id=2029619789 instance=ExtResource("3_iywne")]
+z_index = -10
 
 [node name="AllTiles" type="Node2D" parent="." unique_id=1860860785]
 
@@ -141,7 +193,13 @@ script = ExtResource("10_kvpfn")
 shape = SubResource("WorldBoundaryShape2D_vtaks")
 
 [node name="RespawnPoint" type="Marker2D" parent="GameNodes" unique_id=1291392203]
+z_index = -5
 position = Vector2(96, 232)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GameNodes/RespawnPoint" unique_id=1836858107]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_js0lu")
+autoplay = "default"
 
 [node name="ItemDatabase" type="Node2D" parent="GameNodes" unique_id=598196364]
 script = ExtResource("12_trtic")

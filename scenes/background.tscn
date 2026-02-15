@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b6i03ln1oib16" path="res://assets/Backgrounds/background 3/4.png" id="4_1tmhi"]
 
 [node name="Background" type="Node2D" unique_id=2029619789]
-show_behind_parent = true
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1535964861]
 show_behind_parent = true

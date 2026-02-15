@@ -4,7 +4,7 @@ extends Node2D
 @export var dropped_item_id: StringName = &"gem"
 @export var dropped_item_amount: int = 1
 @export var drop_radius_px := 6.0
-@export var pop_multiplier := 2.0
+@export var pop_multiplier := 4.0
 
 @onready var health := $"../Health"
 @onready var body: CharacterBody2D = get_parent()
