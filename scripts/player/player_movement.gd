@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed := 120.0
+@export var speed := 100.0
 @export var jump_velocity := -250.0
 
 # Feel settings (Celeste-ish)

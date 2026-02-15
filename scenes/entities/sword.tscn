@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwsl0bh5m2f8v"]
 
 [ext_resource type="Script" uid="uid://cbjfkpn4omipo" path="res://scripts/entities/sword.gd" id="1_1ayml"]
+[ext_resource type="PackedScene" uid="uid://533w0d67oi02" path="res://scenes/damage_number.tscn" id="2_7ls27"]
 [ext_resource type="Texture2D" uid="uid://bswas5euhinko" path="res://assets/Spritesheets/Items1.png" id="2_qecxl"]
 [ext_resource type="AudioStream" uid="uid://b47jqrsggbfyh" path="res://assets/SoundEffects/Hit.wav" id="3_qecxl"]
 
@@ -60,6 +61,7 @@ height = 20.0
 [node name="sword" type="Node2D" unique_id=22069868]
 rotation = -1.5707964
 script = ExtResource("1_1ayml")
+damage_number_scene = ExtResource("2_7ls27")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1440362667]
 libraries/ = SubResource("AnimationLibrary_qecxl")

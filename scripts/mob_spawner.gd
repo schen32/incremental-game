@@ -4,7 +4,7 @@ extends Node2D
 @export var spawn_table: Dictionary = {}   # e.g. { &"grass": preload("res://mobs/slime.tscn"), &"stone": preload("res://mobs/golem.tscn") }
 
 @export var spawn_interval := 5.0          # seconds between spawn checks
-@export var spawn_chance := 0.01            # chance PER CELL per interval
+@export var spawn_chance := 0.05            # chance PER CELL per interval
 @export var max_mobs := 100                 # global cap (still applies)
 
 # per-block caps

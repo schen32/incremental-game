@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var weapon_data: WeaponData
+@export var damage_number_scene: PackedScene
+@export var damage_number_offset := Vector2(0, -12)
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Area2D = $Pivot/Hitbox
@@ -41,9 +43,23 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if not area.has_method("apply_damage"):
 		return
 	area.apply_damage(weapon_data.damage)
-
+	_spawn_damage_number(area, weapon_data.damage)
+	
 	if not area.has_method("apply_knockback"):
 		return
 	area.apply_knockback(player.global_position, weapon_data.knockback_force)
 	
 	SoundManager.play_player(hit_sound)
+	
+func _spawn_damage_number(hurtbox: Area2D, dmg: int) -> void:
+	if damage_number_scene == null:
+		return
+
+	var dn := damage_number_scene.instantiate()
+	get_tree().current_scene.add_child(dn)
+
+	# Spawn near the mob (hurtbox global pos is usually good)
+	dn.global_position = hurtbox.global_position + damage_number_offset
+
+	if dn.has_method("setup"):
+		dn.setup(dmg)
