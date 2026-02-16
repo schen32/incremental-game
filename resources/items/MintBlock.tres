@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_k3cfx")
 id = &"mint"
-display_name = "Mint"
+display_name = &"Mint"
 texture = ExtResource("2_1r1u5")
 atlas_coords = Vector2i(6, 0)
 is_placeable = true

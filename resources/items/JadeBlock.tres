@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_85g6g")
 id = &"jade"
-display_name = "Jade"
+display_name = &"Jade"
 texture = ExtResource("2_hkkjj")
 atlas_coords = Vector2i(9, 0)
 is_placeable = true

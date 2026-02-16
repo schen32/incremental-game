@@ -58,3 +58,47 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lol1l")
 script = ExtResource("4_pymj4")
+
+[node name="Title" type="Label" parent="Info" unique_id=1230978445]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_outline_color = Color(0.06666667, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_3lkab")
+text = "Test"
+
+[node name="Description" type="Label" parent="Info" unique_id=989663284]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 242.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("1_3lkab")
+theme_override_font_sizes/font_size = 12
+text = "Example text."
+autowrap_mode = 3
+
+[node name="Description2" type="Label" parent="Info" unique_id=965810711]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 242.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("1_3lkab")
+theme_override_font_sizes/font_size = 12
+text = "Example text."
+autowrap_mode = 3
+
+[node name="Description3" type="Label" parent="Info" unique_id=932112760]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 216.0
+offset_right = 242.0
+offset_bottom = 312.0
+theme_override_fonts/font = ExtResource("1_3lkab")
+theme_override_font_sizes/font_size = 12
+text = "Example text."
+autowrap_mode = 3

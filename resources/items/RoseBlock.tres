@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_pchsv")
 id = &"rose"
-display_name = "Rose"
+display_name = &"Rose"
 texture = ExtResource("2_m2yvy")
 atlas_coords = Vector2i(5, 0)
 is_placeable = true

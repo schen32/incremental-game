@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_h6wdb")
 id = &"gem"
-display_name = "Gem"
+display_name = &"Gem"
 texture = ExtResource("2_0xayh")
 atlas_coords = Vector2i(7, 5)
 metadata/_custom_type_script = "uid://4pntbdlodnik"

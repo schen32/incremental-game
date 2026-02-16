@@ -2,7 +2,7 @@ extends Resource
 class_name ItemData
 
 @export var id: StringName
-@export var display_name: String
+@export var display_name: StringName
 @export var texture: Texture2D
 @export var atlas_coords: Vector2i
 

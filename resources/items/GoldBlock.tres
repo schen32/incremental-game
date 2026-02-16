@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_5lquu")
 id = &"gold"
-display_name = "Gold"
+display_name = &"Gold"
 texture = ExtResource("2_c75xf")
 is_placeable = true
 metadata/_custom_type_script = "uid://4pntbdlodnik"
