@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ymkck3m223ml" path="res://scenes/ui/hotbar_ui.tscn" id="1_yubou"]
 [ext_resource type="PackedScene" uid="uid://cr866fpqwtukv" path="res://scenes/ui/inventory_ui.tscn" id="2_rns2u"]
 [ext_resource type="PackedScene" uid="uid://cpyka0r0wfseu" path="res://scenes/ui/crafting_ui.tscn" id="3_bma8u"]
+[ext_resource type="PackedScene" uid="uid://gja5iu71k4jp" path="res://scenes/ui/item_tooltip_ui.tscn" id="4_k7elv"]
 [ext_resource type="StyleBox" uid="uid://byptgumusm4ue" path="res://resources/styles/style_box_flat1.tres" id="4_yvtb5"]
 [ext_resource type="PackedScene" uid="uid://ccfj47t65jx2h" path="res://scenes/ui/crafting_tooltip_ui.tscn" id="5_ru5ln"]
 [ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/item_slot.tscn" id="5_v1bdg"]
@@ -33,6 +34,9 @@ offset_right = 192.0
 offset_bottom = 272.0
 scale = Vector2(0.6, 0.6)
 style_box = ExtResource("4_yvtb5")
+
+[node name="ItemTooltipUI" parent="Inventory" unique_id=502101127 instance=ExtResource("4_k7elv")]
+layout_mode = 0
 
 [node name="CraftingUI" parent="Inventory" unique_id=987811394 instance=ExtResource("3_bma8u")]
 layout_mode = 0

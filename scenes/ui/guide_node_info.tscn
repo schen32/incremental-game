@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dvk8r35ogk8lx"]
+
+[ext_resource type="Script" uid="uid://mfdeha0i26ig" path="res://scripts/ui/node_info.gd" id="1_f2yas"]
+[ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/item_slot.tscn" id="2_s37e3"]
+[ext_resource type="StyleBox" uid="uid://dtgi56g27v6bd" path="res://resources/styles/style_box_flat2.tres" id="3_bykti"]
+[ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="4_i33xf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lol1l"]
+bg_color = Color(0.11764706, 0.12156863, 0.16862746, 1)
+
+[node name="Info" type="Panel" unique_id=1455353622]
+custom_minimum_size = Vector2(250, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lol1l")
+script = ExtResource("1_f2yas")
+slot_scene = ExtResource("2_s37e3")
+style_box = ExtResource("3_bykti")
+
+[node name="Title" type="Label" parent="." unique_id=510389851]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+theme_override_colors/font_outline_color = Color(0.06666667, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_i33xf")
+text = "Title text"
+
+[node name="Description" type="Label" parent="." unique_id=1905693815]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 242.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("4_i33xf")
+theme_override_font_sizes/font_size = 12
+text = "Example description text"
+autowrap_mode = 3
+
+[node name="Requirement" type="Label" parent="." unique_id=1809027489]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 242.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("4_i33xf")
+theme_override_font_sizes/font_size = 12
+text = "Requirement:"
+autowrap_mode = 3
+
+[node name="RequireGrid" type="GridContainer" parent="." unique_id=63105285]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 136.0
+offset_right = 50.0
+offset_bottom = 176.0
+scale = Vector2(0.8, 0.8)
+columns = 8
+
+[node name="Reward" type="Label" parent="." unique_id=240059103]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 192.0
+offset_right = 242.0
+offset_bottom = 264.0
+theme_override_fonts/font = ExtResource("4_i33xf")
+theme_override_font_sizes/font_size = 12
+text = "Reward:"
+autowrap_mode = 3
+
+[node name="RewardGrid" type="GridContainer" parent="." unique_id=354310666]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 208.0
+offset_right = 50.0
+offset_bottom = 248.0
+scale = Vector2(0.8, 0.8)
+columns = 8
+
+[node name="Button" type="Button" parent="." unique_id=966789275]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 288.0
+offset_right = 186.0
+offset_bottom = 319.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_i33xf")
+text = "Next"

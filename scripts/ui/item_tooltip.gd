@@ -2,6 +2,7 @@ extends Panel
 
 @onready var item_name: Label = $ItemName
 @onready var description: Label = $Description
+@onready var icon: TextureRect = $Icon
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,10 +13,18 @@ func _process(_delta: float) -> void:
 		global_position = get_global_mouse_position() + Vector2(8, 8)
 
 func show_tooltip(_index: int, item_id: StringName) -> void:
+	if item_id == &"":
+		return
+	
 	visible = true
 	
 	var item_data: ItemData = ItemDatabase.get_item(item_id)
 	item_name.text = item_data.display_name
+	
+	var atlas := AtlasTexture.new()
+	atlas.atlas = item_data.texture
+	atlas.region = item_data.get_region()
+	icon.texture = atlas
 	
 func hide_tooltip(_index: int, _item_id: StringName) -> void:
 	visible = false

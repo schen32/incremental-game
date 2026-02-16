@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://gja5iu71k4jp"]
+
+[ext_resource type="Script" uid="uid://d2npi60mh5smt" path="res://scripts/ui/item_tooltip.gd" id="1_rs1h6"]
+[ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="2_jg0uo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_824vj"]
+bg_color = Color(0.11764706, 0.12156863, 0.16862746, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.43137255, 0.48235294, 0.6392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="ItemTooltipUI" type="Panel" unique_id=502101127]
+offset_right = 128.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_824vj")
+script = ExtResource("1_rs1h6")
+
+[node name="ItemName" type="Label" parent="." unique_id=908906689]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 75.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_jg0uo")
+theme_override_font_sizes/font_size = 12
+text = "Item Name"
+
+[node name="Description" type="Label" parent="." unique_id=1095386272]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 176.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("2_jg0uo")
+theme_override_font_sizes/font_size = 10
+text = "Item description text"
+
+[node name="Icon" type="TextureRect" parent="." unique_id=483549954]
+layout_mode = 0
+offset_left = 112.00001
+offset_top = 8.0
+offset_right = 112.00001
+offset_bottom = 8.0
+scale = Vector2(0.6, 0.6)

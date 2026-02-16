@@ -5,9 +5,9 @@ extends Control
 @export var hotbar_size := 10
 @export var total_slots := 30  # includes hotbar
 
+@onready var tooltip: Panel = $"../ItemTooltipUI"
 @onready var hotbar_grid: GridContainer = $HotbarGrid
 @onready var inventory_grid: GridContainer = $InventoryGrid
-#@onready var item_name: Label = $ItemName
 @onready var player_inventory: Node2D = $"../../../Player/Inventory"
 @onready var inventory_move_items: Node2D = $"../../../GameScripts/InventoryMoveItems"
 
@@ -32,6 +32,8 @@ func _refresh() -> void:
 		else:
 			ui_slot.set_slot(&"", 0)
 		ui_slot.add_theme_stylebox_override(&"panel", style_box)
+		ui_slot.hovered.connect(tooltip.show_tooltip)
+		ui_slot.unhovered.connect(tooltip.hide_tooltip)
 
 		ui_slot.set_highlight(i == player_inventory.selected_hotbar_index)
 
@@ -47,11 +49,9 @@ func _refresh() -> void:
 			ui_slot.set_slot(stack.id, stack.amount)
 		else:
 			ui_slot.set_slot(&"", 0)
-	
-	#var selected_item = player_inventory.get_selected_item()
-	#item_name.text = &""
-	#if selected_item != null:
-		#item_name.text = ItemDatabase.get_item(selected_item.id).display_name
+		ui_slot.add_theme_stylebox_override(&"panel", style_box)
+		ui_slot.hovered.connect(tooltip.show_tooltip)
+		ui_slot.unhovered.connect(tooltip.hide_tooltip)
 
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():

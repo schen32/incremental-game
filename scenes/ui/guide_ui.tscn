@@ -3,28 +3,11 @@
 [ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="1_3lkab"]
 [ext_resource type="Script" uid="uid://cux4ikanu0i2j" path="res://scripts/ui/toggle_guide.gd" id="1_24apv"]
 [ext_resource type="PackedScene" uid="uid://bkmketxmjqhkq" path="res://scenes/ui/guide_node.tscn" id="3_lol1l"]
-[ext_resource type="Script" uid="uid://mfdeha0i26ig" path="res://scripts/ui/node_info.gd" id="4_pymj4"]
-[ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/item_slot.tscn" id="5_824vj"]
-[ext_resource type="StyleBox" uid="uid://dtgi56g27v6bd" path="res://resources/styles/style_box_flat2.tres" id="6_824vj"]
-[ext_resource type="Script" uid="uid://d2npi60mh5smt" path="res://scripts/ui/item_tooltip.gd" id="7_a414m"]
+[ext_resource type="PackedScene" uid="uid://dvk8r35ogk8lx" path="res://scenes/ui/guide_node_info.tscn" id="4_jnmbw"]
+[ext_resource type="PackedScene" uid="uid://gja5iu71k4jp" path="res://scenes/ui/item_tooltip_ui.tscn" id="5_824vj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v15y"]
 bg_color = Color(0.47843137, 0.3529412, 0.25882354, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lol1l"]
-bg_color = Color(0.11764706, 0.12156863, 0.16862746, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_824vj"]
-bg_color = Color(0.11764706, 0.12156863, 0.16862746, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.43137255, 0.48235294, 0.6392157, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
 
 [node name="GuideUI" type="CanvasLayer" unique_id=900879863]
 script = ExtResource("1_24apv")
@@ -84,114 +67,6 @@ offset_top = 176.0
 offset_right = 160.0
 offset_bottom = 208.0
 
-[node name="Info" type="Panel" parent="." unique_id=906445420]
-custom_minimum_size = Vector2(250, 0)
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lol1l")
-script = ExtResource("4_pymj4")
-slot_scene = ExtResource("5_824vj")
-style_box = ExtResource("6_824vj")
+[node name="Info" parent="." unique_id=1455353622 instance=ExtResource("4_jnmbw")]
 
-[node name="Title" type="Label" parent="Info" unique_id=1230978445]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 50.0
-offset_bottom = 31.0
-theme_override_colors/font_outline_color = Color(0.06666667, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("1_3lkab")
-text = "Title text"
-
-[node name="Description" type="Label" parent="Info" unique_id=989663284]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 32.0
-offset_right = 242.0
-offset_bottom = 112.0
-theme_override_fonts/font = ExtResource("1_3lkab")
-theme_override_font_sizes/font_size = 12
-text = "Example description text"
-autowrap_mode = 3
-
-[node name="Requirement" type="Label" parent="Info" unique_id=965810711]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 120.0
-offset_right = 242.0
-offset_bottom = 184.0
-theme_override_fonts/font = ExtResource("1_3lkab")
-theme_override_font_sizes/font_size = 12
-text = "Requirement:"
-autowrap_mode = 3
-
-[node name="RequireGrid" type="GridContainer" parent="Info" unique_id=1943424899]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 136.0
-offset_right = 50.0
-offset_bottom = 176.0
-scale = Vector2(0.8, 0.8)
-columns = 8
-
-[node name="Reward" type="Label" parent="Info" unique_id=932112760]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 192.0
-offset_right = 242.0
-offset_bottom = 264.0
-theme_override_fonts/font = ExtResource("1_3lkab")
-theme_override_font_sizes/font_size = 12
-text = "Reward:"
-autowrap_mode = 3
-
-[node name="RewardGrid" type="GridContainer" parent="Info" unique_id=2121763472]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 208.0
-offset_right = 50.0
-offset_bottom = 248.0
-scale = Vector2(0.8, 0.8)
-columns = 8
-
-[node name="Button" type="Button" parent="Info" unique_id=1757147019]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 288.0
-offset_right = 186.0
-offset_bottom = 319.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("1_3lkab")
-text = "Next"
-
-[node name="ItemTooltip" type="Panel" parent="." unique_id=1789605233]
-offset_right = 128.0
-offset_bottom = 64.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_824vj")
-script = ExtResource("7_a414m")
-
-[node name="ItemName" type="Label" parent="ItemTooltip" unique_id=1127546925]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 75.0
-offset_bottom = 31.0
-theme_override_fonts/font = ExtResource("1_3lkab")
-theme_override_font_sizes/font_size = 12
-text = "Item Name"
-
-[node name="Description" type="Label" parent="ItemTooltip" unique_id=940974401]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 176.0
-offset_bottom = 47.0
-theme_override_fonts/font = ExtResource("1_3lkab")
-theme_override_font_sizes/font_size = 10
-text = "Item description text"
+[node name="ItemTooltip" parent="." unique_id=502101127 instance=ExtResource("5_824vj")]
