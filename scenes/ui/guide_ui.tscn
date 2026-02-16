@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cux4ikanu0i2j" path="res://scripts/ui/toggle_guide.gd" id="1_24apv"]
 [ext_resource type="PackedScene" uid="uid://bkmketxmjqhkq" path="res://scenes/ui/guide_node.tscn" id="3_lol1l"]
 [ext_resource type="Script" uid="uid://mfdeha0i26ig" path="res://scripts/ui/node_info.gd" id="4_pymj4"]
+[ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/item_slot.tscn" id="5_824vj"]
+[ext_resource type="StyleBox" uid="uid://dtgi56g27v6bd" path="res://resources/styles/style_box_flat2.tres" id="6_824vj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v15y"]
 bg_color = Color(0.47843137, 0.3529412, 0.25882354, 1)
@@ -48,6 +50,27 @@ offset_top = 152.0
 offset_right = 48.0
 offset_bottom = 184.0
 
+[node name="Panel2" parent="Nodes" unique_id=269714460 instance=ExtResource("3_lol1l")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 152.0
+offset_right = 104.0
+offset_bottom = 184.0
+
+[node name="Panel3" parent="Nodes" unique_id=1458477882 instance=ExtResource("3_lol1l")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 160.0
+offset_bottom = 160.0
+
+[node name="Panel4" parent="Nodes" unique_id=14716699 instance=ExtResource("3_lol1l")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 176.0
+offset_right = 160.0
+offset_bottom = 208.0
+
 [node name="Info" type="Panel" parent="." unique_id=906445420]
 custom_minimum_size = Vector2(250, 0)
 anchors_preset = 11
@@ -58,6 +81,8 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lol1l")
 script = ExtResource("4_pymj4")
+slot_scene = ExtResource("5_824vj")
+style_box = ExtResource("6_824vj")
 
 [node name="Title" type="Label" parent="Info" unique_id=1230978445]
 layout_mode = 0
@@ -68,7 +93,7 @@ offset_bottom = 31.0
 theme_override_colors/font_outline_color = Color(0.06666667, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_3lkab")
-text = "Test"
+text = "Title text"
 
 [node name="Description" type="Label" parent="Info" unique_id=989663284]
 layout_mode = 0
@@ -78,27 +103,56 @@ offset_right = 242.0
 offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("1_3lkab")
 theme_override_font_sizes/font_size = 12
-text = "Example text."
+text = "Example description text"
 autowrap_mode = 3
 
-[node name="Description2" type="Label" parent="Info" unique_id=965810711]
+[node name="Requirement" type="Label" parent="Info" unique_id=965810711]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 120.0
 offset_right = 242.0
-offset_bottom = 208.0
+offset_bottom = 184.0
 theme_override_fonts/font = ExtResource("1_3lkab")
 theme_override_font_sizes/font_size = 12
-text = "Example text."
+text = "Requirement:"
 autowrap_mode = 3
 
-[node name="Description3" type="Label" parent="Info" unique_id=932112760]
+[node name="RequireGrid" type="GridContainer" parent="Info" unique_id=1943424899]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 216.0
+offset_top = 136.0
+offset_right = 50.0
+offset_bottom = 176.0
+scale = Vector2(0.8, 0.8)
+columns = 8
+
+[node name="Reward" type="Label" parent="Info" unique_id=932112760]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 192.0
 offset_right = 242.0
-offset_bottom = 312.0
+offset_bottom = 264.0
 theme_override_fonts/font = ExtResource("1_3lkab")
 theme_override_font_sizes/font_size = 12
-text = "Example text."
+text = "Reward:"
 autowrap_mode = 3
+
+[node name="RewardGrid" type="GridContainer" parent="Info" unique_id=2121763472]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 208.0
+offset_right = 50.0
+offset_bottom = 248.0
+scale = Vector2(0.8, 0.8)
+columns = 8
+
+[node name="Button" type="Button" parent="Info" unique_id=1757147019]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 288.0
+offset_right = 186.0
+offset_bottom = 319.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_3lkab")
+text = "Next"

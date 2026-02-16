@@ -8,4 +8,10 @@ script = ExtResource("1_cjbry")
 texture = ExtResource("2_chn8a")
 title = &"The Game Begins..."
 description = &"Welcome to Sky is the Limit, an Incremental Game set in the sky."
+requirements = {
+&"grass": 1
+}
+rewards = {
+&"dirt": 1
+}
 metadata/_custom_type_script = "uid://c02oq0iqwlvyy"
