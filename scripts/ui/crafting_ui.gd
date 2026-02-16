@@ -3,7 +3,7 @@ extends Control
 @export var slot_scene: PackedScene
 @export var style_box: StyleBoxFlat
 @onready var recipe_grid: GridContainer = $ScrollContainer/RecipeGrid
-@onready var tooltip: Panel = $"../TooltipUI"
+@onready var tooltip: Panel = $"../CraftingTooltipUI"
 @onready var craft_item: Node2D = $"../../../GameScripts/CraftItem"
 @onready var available_recipes: Node2D = $"../../../GameScripts/AvailableRecipes"
 

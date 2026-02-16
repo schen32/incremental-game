@@ -17,16 +17,16 @@ func _process(_delta: float) -> void:
 	if visible:
 		global_position = get_global_mouse_position() + Vector2(8, 8)
 
-func show_tooltip(index: int) -> void:
+func show_tooltip(index: int, item_id: StringName) -> void:
 	visible = true
 	
-	var recipe_data: RecipeData = available.recipes[index].recipe
-	var output_data: ItemData = ItemDatabase.get_item(recipe_data.output_id)
+	var output_data: ItemData = ItemDatabase.get_item(item_id)
 	item_name.text = output_data.display_name
 	
+	var recipe_data: RecipeData = available.recipes[index].recipe
 	_refresh(recipe_data)
 	
-func hide_tooltip(_index: int) -> void:
+func hide_tooltip(_index: int, _item_id: StringName) -> void:
 	visible = false
 
 func _refresh(recipe_data: RecipeData) -> void:

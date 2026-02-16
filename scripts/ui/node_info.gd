@@ -3,6 +3,7 @@ extends Panel
 @export var slot_scene: PackedScene
 @export var style_box: StyleBoxFlat
 
+@onready var tooltip: Panel = $"../ItemTooltip"
 @onready var require_grid: GridContainer = $RequireGrid
 @onready var reward_grid: GridContainer = $RewardGrid
 @onready var title: Label = $Title
@@ -32,8 +33,8 @@ func _refresh(node_data: GuideNodeData) -> void:
 		ui_slot.set_slot(key, node_data.requirements[key])
 		ui_slot.add_theme_stylebox_override(&"panel", style_box)
 		
-		#ui_slot.hovered.connect(tooltip.show_tooltip)
-		#ui_slot.unhovered.connect(tooltip.hide_tooltip)
+		ui_slot.hovered.connect(tooltip.show_tooltip)
+		ui_slot.unhovered.connect(tooltip.hide_tooltip)
 		i += 1
 	
 	for key in node_data.rewards.keys():
@@ -43,8 +44,8 @@ func _refresh(node_data: GuideNodeData) -> void:
 		ui_slot.set_slot(key, node_data.rewards[key])
 		ui_slot.add_theme_stylebox_override(&"panel", style_box)
 		
-		#ui_slot.hovered.connect(tooltip.show_tooltip)
-		#ui_slot.unhovered.connect(tooltip.hide_tooltip)
+		ui_slot.hovered.connect(tooltip.show_tooltip)
+		ui_slot.unhovered.connect(tooltip.hide_tooltip)
 		i += 1
 
 func _clear_children(node: Node) -> void:
