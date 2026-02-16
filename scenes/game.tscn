@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://d1doe40jv0hhg" path="res://scripts/globals/recipe_database.gd" id="21_37s47"]
 [ext_resource type="PackedScene" uid="uid://bpli5t0y0omtm" path="res://scenes/entities/snake.tscn" id="22_pl11u"]
 [ext_resource type="Script" uid="uid://d3mttmi21qeux" path="res://scripts/world_blocks.gd" id="23_e1j6l"]
+[ext_resource type="PackedScene" uid="uid://buoh42yp7ku7g" path="res://scenes/ui/guide_ui.tscn" id="27_qnb83"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1j6l"]
 texture = ExtResource("4_bt5mj")
@@ -176,11 +177,11 @@ script = ExtResource("12_1kice")
 [node name="AvailableRecipes" type="Node2D" parent="GameScripts" unique_id=1146806397]
 script = ExtResource("13_1kice")
 
-[node name="InventoryMoveItems" type="Node2D" parent="GameScripts" unique_id=51191494]
-script = ExtResource("14_5newe")
-
 [node name="CraftItem" type="Node2D" parent="GameScripts" unique_id=1033919964]
 script = ExtResource("15_37s47")
+
+[node name="InventoryMoveItems" type="Node2D" parent="GameScripts" unique_id=51191494]
+script = ExtResource("14_5newe")
 
 [node name="GameNodes" type="Node2D" parent="." unique_id=1103421725]
 
@@ -226,4 +227,6 @@ volume_db = -20.0
 [node name="SoundManager" type="Node2D" parent="GameNodes" unique_id=1118356706]
 script = ExtResource("16_bt5mj")
 
-[node name="GameUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
+[node name="InventoryUI" parent="." unique_id=738382559 instance=ExtResource("8_gee14")]
+
+[node name="GuideUI" parent="." unique_id=900879863 instance=ExtResource("27_qnb83")]

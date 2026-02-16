@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cpyka0r0wfseu" path="res://scenes/ui/crafting_ui.tscn" id="3_bma8u"]
 [ext_resource type="StyleBox" uid="uid://byptgumusm4ue" path="res://resources/styles/style_box_flat1.tres" id="4_yvtb5"]
 [ext_resource type="PackedScene" uid="uid://ccfj47t65jx2h" path="res://scenes/ui/tooltip_ui.tscn" id="5_ru5ln"]
-[ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/inventory_slot.tscn" id="5_v1bdg"]
+[ext_resource type="PackedScene" uid="uid://ybqpcnaw6cyr" path="res://scenes/ui/item_slot.tscn" id="5_v1bdg"]
 [ext_resource type="Script" uid="uid://bwkxr5im1m4" path="res://scripts/ui/held_item.gd" id="6_v1bdg"]
 [ext_resource type="StyleBox" uid="uid://c5pi0cgtifive" path="res://resources/styles/style_box_flat3.tres" id="7_yvtb5"]
 
