@@ -67,6 +67,10 @@ func add_item(id: StringName, amount: int = 1) -> void:
 			changed.emit()
 			return
 
+func add_items(items: Dictionary) -> void:
+	for key in items.keys():
+		add_item(key, items[key])
+
 func remove_item_from_slot(slot_index: int, amount: int = 1) -> bool:
 	if slot_index < 0 or slot_index >= slots.size():
 		return false

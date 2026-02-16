@@ -10,12 +10,18 @@ extends Panel
 @onready var description: Label = $Description
 @onready var requirement: Label = $Requirement
 @onready var reward: Label = $Reward
+@onready var button: Button = $Button
+
+@onready var craft_item: Node2D = $"../../GameScripts/CraftItem"
+var _current_data: GuideNodeData
 
 func _ready() -> void:
 	visible = false
+	button.pressed.connect(_on_button_pressed)
 
 func _on_node_clicked(node_data: GuideNodeData) -> void:
 	visible = not visible
+	_current_data = node_data
 
 	title.text = node_data.title
 	description.text = node_data.description
@@ -51,3 +57,9 @@ func _refresh(node_data: GuideNodeData) -> void:
 func _clear_children(node: Node) -> void:
 	for c in node.get_children():
 		c.queue_free()
+		
+func _on_button_pressed() -> void:
+	if _current_data == null:
+		return
+		
+	craft_item.convert(_current_data.requirements, _current_data.rewards)

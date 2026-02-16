@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://byptgumusm4ue" path="res://resources/styles/style_box_flat1.tres" id="1_rkklf"]
 [ext_resource type="Script" uid="uid://blwhwgxvdifag" path="res://scripts/ui/guide_node.gd" id="2_hkmml"]
-[ext_resource type="Resource" uid="uid://driwayaqln03d" path="res://resources/guide_nodes/WelcomeNode.tres" id="3_lhmsq"]
+[ext_resource type="Resource" uid="uid://driwayaqln03d" path="res://resources/guide_nodes/Node1.tres" id="3_lhmsq"]
 
 [node name="Panel" type="Panel" unique_id=513930823]
 offset_right = 32.0

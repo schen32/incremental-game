@@ -26,3 +26,9 @@ func craft_recipe(index: int, button: int) -> void:
 		inventory_move_items.set_held(player_inventory.new_item_stack(recipe.output_id, recipe.output_amount))
 	else:
 		inventory_move_items.add_to_held(recipe.output_id, recipe.output_amount)
+
+func convert(inputs: Dictionary, outputs: Dictionary) -> void:
+	if not player_inventory.consume_requirements(inputs):
+		return
+
+	player_inventory.add_items(outputs)
