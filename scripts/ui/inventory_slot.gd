@@ -7,7 +7,7 @@ var index: int = -1
 
 @export var style_box: StyleBoxFlat
 @onready var icon: TextureRect = $Icon
-@onready var count: Label = $Count
+@onready var count: Label = $Icon/Count
 
 func _ready() -> void:
 	add_theme_stylebox_override(&"panel", style_box)

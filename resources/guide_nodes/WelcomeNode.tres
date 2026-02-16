@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GuideNodeData" format=3 uid="uid://driwayaqln03d"]
+
+[ext_resource type="Script" uid="uid://c02oq0iqwlvyy" path="res://resources/guide_nodes/GuideNodeData.gd" id="1_cjbry"]
+[ext_resource type="Texture2D" uid="uid://bswas5euhinko" path="res://assets/Spritesheets/Items1.png" id="2_chn8a"]
+
+[resource]
+script = ExtResource("1_cjbry")
+texture = ExtResource("2_chn8a")
+metadata/_custom_type_script = "uid://c02oq0iqwlvyy"

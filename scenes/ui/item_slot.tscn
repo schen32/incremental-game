@@ -3,6 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://c5pi0cgtifive" path="res://resources/styles/style_box_flat3.tres" id="1_pdajm"]
 [ext_resource type="Script" uid="uid://cpw6ebhbnaj7b" path="res://scripts/ui/inventory_slot.gd" id="2_mpkfb"]
 [ext_resource type="StyleBox" uid="uid://byptgumusm4ue" path="res://resources/styles/style_box_flat1.tres" id="3_bavwu"]
+[ext_resource type="FontFile" uid="uid://di4ok7sxd4e16" path="res://assets/LowresPixel-Regular.otf" id="4_mpkfb"]
 
 [node name="ItemSlot" type="Panel" unique_id=1779448498]
 custom_minimum_size = Vector2(40, 40)
@@ -13,19 +14,31 @@ script = ExtResource("2_mpkfb")
 style_box = ExtResource("3_bavwu")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1786128127]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Count" type="Label" parent="." unique_id=1374759025]
+[node name="Count" type="Label" parent="Icon" unique_id=1374759025]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_mpkfb")
 horizontal_alignment = 2
 vertical_alignment = 2

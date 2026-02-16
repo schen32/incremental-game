@@ -4,8 +4,8 @@ func _ready() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_guide"):
+func _process(_delta) -> void:
+	if Input.is_action_just_pressed("toggle_guide"):
 		toggle()
 
 func toggle() -> void:
